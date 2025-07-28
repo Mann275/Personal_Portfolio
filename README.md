@@ -4,7 +4,7 @@ A modern, responsive portfolio website built with React.js, showcasing my skills
 
 ## 🚀 Live Demo
 
-[View Portfolio](https://mann275.github.io/Personal_Portfolio/)
+[View Portfolio](patelmann.me)
 
 ---
 
