@@ -1,0 +1,220 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(10, 10, 25, 0.95);
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(168, 85, 247, 0.1);
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+}
+
+.logo img {
+  height: 50px;
+  width: auto;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 0 10px rgba(168, 85, 247, 0.3));
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-link {
+  background: rgba(30, 30, 40, 0.8);
+  border: 2px solid rgba(60, 60, 80, 0.6);
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  padding: 12px 24px;
+  border-radius: 25px;
+  transition: all 1.2s ease;
+  position: relative;
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+  z-index: 1;
+}
+
+.nav-link::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle, rgba(138, 43, 226, 0.7) 0%, rgba(30, 144, 255, 0.5) 50%, rgba(0, 191, 255, 0.2) 70%, transparent 100%);
+  border-radius: 50%;
+  transition: all 1.5s ease;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.nav-link:hover::before {
+  width: 180px;
+  height: 180px;
+  box-shadow: 0 0 40px rgba(138, 43, 226, 0.4),
+              0 0 80px rgba(30, 144, 255, 0.3),
+              0 0 120px rgba(0, 191, 255, 0.1);
+}
+
+.nav-link:hover {
+  color: #ffffff;
+  border-color: rgba(138, 43, 226, 0.9);
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.9),
+               0 0 16px rgba(255, 255, 255, 0.6),
+               0 0 24px rgba(138, 43, 226, 0.4);
+  font-weight: 600;
+  transform: translateY(-2px);
+  background: rgba(30, 30, 40, 0.9);
+}
+
+/* Glow effect around the button */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 25px;
+  background: linear-gradient(135deg, transparent, rgba(102, 126, 234, 0.1), transparent);
+  opacity: 0;
+  transition: all 0.3s ease;
+  z-index: -2;
+}
+
+.nav-link:hover::after {
+  opacity: 1;
+  box-shadow: 0 0 30px rgba(102, 126, 234, 0.5);
+}
+
+.hamburger {
+  display: none;
+  font-size: 1.5rem;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  background: rgba(102, 126, 234, 0.1);
+  border: 1px solid rgba(102, 126, 234, 0.2);
+}
+
+.hamburger:hover {
+  color: #667eea;
+  background: rgba(102, 126, 234, 0.2);
+  transform: scale(1.05);
+}
+
+.close-menu {
+  display: none;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 1.5rem;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 50%;
+  background: rgba(102, 126, 234, 0.2);
+  transition: all 0.3s ease;
+}
+
+.close-menu:hover {
+  color: #667eea;
+  background: rgba(102, 126, 234, 0.3);
+  transform: scale(1.1);
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 300px;
+    height: 100vh;
+    background: rgba(10, 10, 25, 0.98);
+    backdrop-filter: blur(20px);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    transition: right 0.3s ease;
+    border-left: 1px solid rgba(102, 126, 234, 0.3);
+    border-radius: 0;
+    padding: 2rem;
+  }
+
+  .nav-menu.active {
+    right: 0;
+  }
+
+  .nav-link {
+    font-size: 1.2rem;
+    padding: 15px 25px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .close-menu {
+    display: block;
+  }
+
+  .close-menu:hover {
+    color: #a855f7;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-container {
+    padding: 0 15px;
+    height: 60px;
+  }
+
+  .logo img {
+    height: 40px;
+  }
+
+  .nav-menu {
+    width: 280px;
+    padding: 20px;
+  }
+
+  .nav-link {
+    font-size: 1.1rem;
+    padding: 14px 20px;
+    margin-bottom: 8px;
+  }
+
+  .nav-link:hover {
+    box-shadow: 0 0 12px rgba(64, 168, 255, 0.6),
+                0 0 25px rgba(64, 168, 255, 0.4);
+  }
+}
