@@ -11,7 +11,7 @@ const About = () => {
       title: 'Skills',
       content: (
         <div className="skills-content">
-          {/* Languages Section */}
+          {/* Programming Languages Section */}
           <div className="skills-category">
             <h4>💻 Programming Languages</h4>
             <div className="skills-list">
@@ -34,32 +34,38 @@ const About = () => {
             </div>
           </div>
 
-          {/* Frontend Section */}
-          <div className="skills-category">
-            <h4>🎨 Frontend</h4>
-            <div className="skills-list">
-              <div className="skill-item">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" />
-                <span>React</span>
-              </div>
-              <div className="skill-item">
-                <img src="https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg" alt="Tailwind CSS" />
-                <span>Tailwind CSS</span>
+          {/* Frontend and Backend Side by Side */}
+          <div className="skills-frontend-backend">
+            {/* Frontend Section */}
+            <div className="skills-category frontend">
+              <h4>🎨 Frontend</h4>
+              <div className="skills-list">
+                <div className="skill-item">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" />
+                  <span>React</span>
+                </div>
+                <div className="skill-item">
+                  <img src="https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg" alt="Tailwind CSS" />
+                  <span>Tailwind CSS</span>
+                </div>
               </div>
             </div>
-          </div>
 
-          {/* Backend Section */}
-          <div className="skills-category">
-            <h4>⚙️ Backend</h4>
-            <div className="skills-list">
-              <div className="skill-item">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" />
-                <span>Node.js</span>
-              </div>
-              <div className="skill-item">
-                <i className="fas fa-server"></i>
-                <span>REST APIs</span>
+            {/* Partition Line */}
+            <div className="skills-partition"></div>
+
+            {/* Backend Section */}
+            <div className="skills-category backend">
+              <h4>⚙️ Backend</h4>
+              <div className="skills-list">
+                <div className="skill-item">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" />
+                  <span>Node.js</span>
+                </div>
+                <div className="skill-item">
+                  <i className="fas fa-server"></i>
+                  <span>REST APIs</span>
+                </div>
               </div>
             </div>
           </div>
@@ -120,12 +126,14 @@ const About = () => {
           {/* CDC Tech Team Experience */}
           <div className="experience-item">
             <div className="experience-header">
-              <h4>CDC Tech Team Member</h4>
+              <h4>Tech Team Lead</h4>
               <span className="experience-period">2023 - 2025</span>
             </div>
-            <p className="experience-company">Parul University</p>
+            <p className="experience-company">Career Development Cell, Parul University</p>
             <p className="experience-description">
-              Contributing to organizing large-scale tech events by managing and optimizing workflows.
+              As a member of the CDC Technical team, I contributed to the "Global Fun Fest 2023-24 & 2024-25". I managed the technical logistics of large-scale events with over 500 attendees, ensuring smooth
+              coordination and real-time responsiveness. Additionally, I focused on optimizing workflows and improving
+              operational efficiency to enhance the overall event experience.
             </p>
           </div>
         </div>

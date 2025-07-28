@@ -1,6 +1,20 @@
+/**
+ * Contact.css - Contact Section Styles
+ * 
+ * This file contains styling for the contact section including:
+ * - Contact section background with gradient
+ * - Contact information cards with icons
+ * - Social media links with hover effects
+ * - Contact form with input styling and validation
+ * - EmailJS integration for form submission
+ * - Success/error message styling
+ * - Responsive grid layout for desktop and mobile
+ */
+
+/* ===== CONTACT SECTION MAIN CONTAINER ===== */
 .contact-section {
   padding: 5rem 0;
-  /* Dark gradient background for contact section */
+  /* Gradient background transitioning from blue tones */
   background: linear-gradient(135deg, #0f3460 0%, #1a1a2e 50%, #16213e 100%);
   border-top: 2px solid rgba(168, 85, 247, 0.3);
   min-height: 100vh;

@@ -1,8 +1,26 @@
-/* Global Styles */
+/**
+ * App.css - Global Styles and Common Components
+ * 
+ * This file contains:
+ * - CSS reset and global base styles
+ * - Typography system and color variables
+ * - Reusable button components with variants
+ * - Common layout containers and utilities
+ * - Responsive design breakpoints
+ * - Global animations and scroll behavior
+ * - Custom scrollbar styling with gradients
+ * 
+ * Color Scheme:
+ * - Primary: Purple to Blue gradient (#a855f7 to #3b82f6)
+ * - Background: Dark navy (#0f0f23)
+ * - Text: White (#ffffff) and muted gray (#94a3b8)
+ */
+
+/* ===== GLOBAL RESET AND BASE STYLES ===== */
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: border-box; /* Include padding and border in element width */
 }
 
 html {

@@ -1,6 +1,19 @@
+/**
+ * Projects.css - Projects Showcase Styles
+ * 
+ * This file contains styling for the projects section including:
+ * - Projects grid layout with responsive design
+ * - Project cards with hover effects and animations
+ * - Project image overlays with links (Live Demo/GitHub)
+ * - Technology tags and feature lists
+ * - Smooth transitions and transform effects
+ * - Call-to-action section for viewing more projects
+ */
+
+/* ===== PROJECTS SECTION MAIN CONTAINER ===== */
 .projects-section {
   padding: 5rem 0;
-  /* Dark gradient background for projects section */
+  /* Gradient background with project-focused color scheme */
   background: linear-gradient(135deg, #1a1a2e 0%, #0f3460 50%, #16213e 100%);
   border-bottom: 2px solid rgba(168, 85, 247, 0.3);
   min-height: 100vh;

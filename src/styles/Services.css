@@ -1,6 +1,19 @@
+/**
+ * Services.css - Services Section Styles
+ * 
+ * This file contains styling for the services section including:
+ * - Services section background with purple gradient
+ * - Service cards with glass morphism effects
+ * - Service icons with glow effects and animations
+ * - Service descriptions and feature lists
+ * - Hover effects with transform and glow
+ * - Responsive grid layout for service cards
+ */
+
+/* ===== SERVICES SECTION MAIN CONTAINER ===== */
 .services-section {
   padding: 5rem 0;
-  /* Dark gradient background for services section */
+  /* Purple-toned gradient for services section */
   background: linear-gradient(135deg, #2d1b69 0%, #16213e 50%, #1a1a2e 100%);
   border-bottom: 2px solid rgba(168, 85, 247, 0.3);
   min-height: 100vh;

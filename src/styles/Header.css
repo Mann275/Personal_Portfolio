@@ -1,12 +1,25 @@
+/**
+ * Header.css - Navigation Bar Styles
+ * 
+ * This file contains styling for the navigation header including:
+ * - Fixed navigation bar with blur backdrop effect
+ * - Logo styling with glow effects
+ * - Navigation menu with smooth hover animations
+ * - Mobile responsive hamburger menu
+ * - Smooth scrolling navigation links
+ * - Advanced glow effects and transitions
+ */
+
+/* ===== MAIN NAVIGATION BAR ===== */
 .navbar {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  background: rgba(10, 10, 25, 0.95);
-  backdrop-filter: blur(15px);
+  background: rgba(10, 10, 25, 0.95); /* Semi-transparent dark background */
+  backdrop-filter: blur(15px); /* Glass morphism effect */
   border-bottom: 1px solid rgba(168, 85, 247, 0.1);
-  z-index: 1000;
+  z-index: 1000; /* High z-index to stay above other content */
   transition: all 0.3s ease;
 }
 

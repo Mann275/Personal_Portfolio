@@ -1,6 +1,20 @@
+/**
+ * About.css - Styles for About Section
+ * 
+ * This file contains styling for the About section which includes:
+ * - About section background with gradient and layout
+ * - Tabbed interface for Skills, Experience, and Education
+ * - Skills grid layout with technology icons and hover effects
+ * - Experience timeline with company details and descriptions
+ * - Education section with institutional details
+ * - Responsive design for mobile and tablet devices
+ * - Smooth animations and transitions throughout
+ */
+
+/* ===== ABOUT SECTION MAIN CONTAINER ===== */
 .about-section {
   padding: 5rem 0;
-  /* Better gradient with more appealing colors */
+  /* Multi-color gradient background for visual appeal */
   background: linear-gradient(135deg, #1a1a2e 0%, #16213e 30%, #0f3460 70%, #1a1a2e 100%);
   border-bottom: 2px solid rgba(168, 85, 247, 0.3);
   min-height: 100vh;
@@ -76,6 +90,57 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
+}
+
+/* Frontend and Backend side by side layout */
+.skills-frontend-backend {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  margin: 2rem 0;
+  position: relative;
+}
+
+.skills-frontend-backend .skills-category {
+  flex: 1;
+  margin-bottom: 0;
+}
+
+.skills-frontend-backend .frontend {
+  text-align: right;
+}
+
+.skills-frontend-backend .backend {
+  text-align: left;
+}
+
+/* Partition line between frontend and backend */
+.skills-partition {
+  width: 2px;
+  min-height: 150px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    #667eea 20%,
+    #764ba2 50%,
+    #667eea 80%,
+    transparent
+  );
+  position: relative;
+  flex-shrink: 0;
+}
+
+.skills-partition::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  background: #667eea;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
 }
 
 .skills-category {
@@ -321,6 +386,31 @@
   .about-content {
     grid-template-columns: 1fr;
     gap: 3rem;
+  }
+  
+  /* Stack frontend and backend vertically on mobile */
+  .skills-frontend-backend {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .skills-partition {
+    width: 100%;
+    height: 2px;
+    min-height: auto;
+    background: linear-gradient(
+      to right,
+      transparent,
+      #667eea 20%,
+      #764ba2 50%,
+      #667eea 80%,
+      transparent
+    );
+  }
+  
+  .skills-frontend-backend .frontend,
+  .skills-frontend-backend .backend {
+    text-align: center;
   }
   
   .skills-content {
