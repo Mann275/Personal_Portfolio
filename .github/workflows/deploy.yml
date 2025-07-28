@@ -32,11 +32,8 @@ jobs:
     - name: Build
       run: npm run build
       
-    - name: Copy CNAME and .nojekyll to build folder
+    - name: Copy .nojekyll to build folder
       run: |
-        if [ -f CNAME ]; then
-          cp CNAME build/
-        fi
         if [ -f public/.nojekyll ]; then
           cp public/.nojekyll build/
         fi
