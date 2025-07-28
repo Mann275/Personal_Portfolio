@@ -47,7 +47,7 @@ const Home = () => {
           {/* Profile image container - Left side */}
           <div className="profile-container">
             <div className="profile-image">
-              <img src="/assets/Myself.png" alt="Patel Mann - Full Stack Developer" />
+              <img src={`${process.env.PUBLIC_URL}/assets/Myself.png`} alt="Patel Mann - Full Stack Developer" />
               <div className="profile-overlay"></div>
             </div>
           </div>
@@ -71,7 +71,7 @@ const Home = () => {
               
               {/* Call-to-action buttons */}
               <div className="cta-buttons">
-                <a href="/assets/Resume_Mann.pdf" download className="btn btn-primary">
+                <a href={`${process.env.PUBLIC_URL}/assets/Resume_Mann.pdf`} download className="btn btn-primary">
                   <i className="fas fa-download"></i>
                   Download Resume
                 </a>

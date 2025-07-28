@@ -29,7 +29,7 @@ const Header = () => {
       <div className="nav-container">
         {/* Logo section */}
         <div className="logo">
-          <img src="/assets/Logo.png" alt="Portfolio Logo" />
+          <img src={`${process.env.PUBLIC_URL}/assets/Logo.png`} alt="Portfolio Logo" />
         </div>
         
         {/* Navigation menu */}
