@@ -46,15 +46,21 @@ Hi! I'm **Mann Patel**, a passionate Full-Stack Developer and Computer Science s
 
 ```
 Personal-Portfolio/
+├── .github/                # GitHub Actions workflows
+│   └── workflows/          # Automated deployment scripts
+│       └── deploy.yml      # Auto-deploy to GitHub Pages on push
+│
 ├── public/                 # Public assets and HTML template
 │   ├── index.html          # Main HTML file (entry point)
-│   ├── assets/             # Static assets (renamed from images)
+│   ├── assets/             # Static assets (images, documents)
 │   │   ├── Crackit.png     # Project screenshots
-│   │   ├── driver.png      # Project images
+│   │   ├── driver.png      # Project images  
 │   │   ├── favicon1.png    # Site favicon
-│   │   ├── Resume_Mann.pdf # Downloadable resume
-│   │   └── wrok.jpeg       # Background images
-│   └── manifest.json       # PWA configuration
+│   │   ├── FinHack.jpeg    # Project images
+│   │   ├── Logo.png        # Portfolio logo
+│   │   ├── Myself.png      # Profile picture
+│   │   └── Resume_Mann.pdf # Downloadable resume
+│   └── manifest.json       # PWA configuration (updated)
 │
 ├── src/                    # Source code directory
 │   ├── components/         # Reusable React components
@@ -78,11 +84,18 @@ Personal-Portfolio/
 │   │
 │   └── App.js              # Main app component with routing
 │
-├── package.json            # Project dependencies and scripts
+├── .gitignore              # Git ignore rules
+├── package.json            # Project dependencies and scripts  
 ├── package-lock.json       # Locked dependency versions
 ├── README.md              # This documentation file
-└── CNAME                  # Custom domain configuration
+└── CNAME                  # Custom domain configuration (patelmann.me)
 ```
+
+### 🚀 **New Features Added:**
+- **GitHub Actions**: Automatic deployment on every push to main branch
+- **Clean Structure**: No duplicate files or build folders in repository
+- **Optimized Assets**: Updated asset names and organized structure
+- **Auto-Deploy**: No manual deployment needed - just push and go live!
 
 ### Installation Steps
 
@@ -113,6 +126,16 @@ npm run build      # Build optimized production version
 npm test           # Run test suite
 npm run eject      # Eject from Create React App (not recommended)
 ```
+
+### 🚀 **Deployment Process**
+
+**Automated Deployment via GitHub Actions:**
+1. Make changes to your code
+2. Commit and push to main branch: `git push origin main`
+3. GitHub Actions automatically builds and deploys to GitHub Pages
+4. Website goes live at: `https://mann275.github.io/Personal_Portfolio/`
+
+**No manual deployment needed!** ✨
 
 ---
 
