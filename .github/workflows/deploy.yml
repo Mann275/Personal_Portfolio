@@ -32,6 +32,15 @@ jobs:
     - name: Build
       run: npm run build
       
+    - name: Copy CNAME
+      run: |
+        if [ -f CNAME ]; then
+          cp CNAME build/
+        fi
+      
+    - name: Copy CNAME to build folder
+      run: cp CNAME build/CNAME
+      
     - name: Setup Pages
       uses: actions/configure-pages@v4
       
