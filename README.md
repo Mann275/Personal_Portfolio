@@ -4,7 +4,7 @@ A modern, responsive portfolio website built with React.js, showcasing my skills
 
 ## 🚀 Live Demo
 
-[View Portfolio](patelmann.me)
+[View Portfolio](https://patelmann.me)
 
 ---
 
