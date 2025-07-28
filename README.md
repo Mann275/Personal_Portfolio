@@ -4,7 +4,7 @@ A modern, responsive portfolio website built with React.js, showcasing my skills
 
 ## 🚀 Live Demo
 
-[View Portfolio](patelmann.me)
+[View Portfolio](https://mann275.github.io/Personal_Portfolio/)
 
 ---
 
@@ -127,9 +127,8 @@ npm run eject      # Eject from Create React App (not recommended)
 ---
 
 
-**Made with ❤️ by Mann Patel**
+**Made by Mann Patel**
 
-*Last Updated: July 2025*
 
 ---
 
