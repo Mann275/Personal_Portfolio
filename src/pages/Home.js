@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/Home.css';
 
-// Portfolio Home Component - Fixed GitHub Pages deployment
 const Home = () => {
   // State for typing animation
   const [displayedText, setDisplayedText] = useState('');
