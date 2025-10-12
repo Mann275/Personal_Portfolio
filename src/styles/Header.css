@@ -53,74 +53,79 @@
 }
 
 .nav-link {
-  background: rgba(30, 30, 40, 0.8);
-  border: 2px solid rgba(60, 60, 80, 0.6);
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 0.9rem;
-  font-weight: 500;
+  background: rgba(30, 30, 40, 0.85);
+  border: 2px solid rgba(80, 80, 100, 0.45);
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.95rem;
+  font-weight: 600;
   cursor: pointer;
   text-decoration: none;
-  padding: 12px 24px;
-  border-radius: 25px;
-  transition: all 1.2s ease;
+  padding: 10px 22px;
+  border-radius: 26px;
+  transition: background 200ms ease, color 200ms ease, transform 150ms ease;
   position: relative;
-  backdrop-filter: blur(10px);
-  overflow: hidden;
+  backdrop-filter: blur(6px);
+  overflow: visible;
   z-index: 1;
 }
 
 .nav-link::before {
+  /* Decorative animated border pseudo-element */
   content: '';
   position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  background: radial-gradient(circle, rgba(138, 43, 226, 0.7) 0%, rgba(30, 144, 255, 0.5) 50%, rgba(0, 191, 255, 0.2) 70%, transparent 100%);
-  border-radius: 50%;
-  transition: all 1.5s ease;
-  transform: translate(-50%, -50%);
+  inset: -4px; /* expand outside the button for border animation */
+  border-radius: 30px;
+  background: linear-gradient(90deg, rgba(168,85,247,0.0), rgba(102,126,234,0.0));
   z-index: -1;
   pointer-events: none;
+  transition: opacity 200ms ease, transform 250ms ease;
+  opacity: 0;
 }
 
-.nav-link:hover::before {
-  width: 180px;
-  height: 180px;
-  box-shadow: 0 0 40px rgba(138, 43, 226, 0.4),
-              0 0 80px rgba(30, 144, 255, 0.3),
-              0 0 120px rgba(0, 191, 255, 0.1);
+/* Animated border using an extra pseudo-element */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 28px;
+  padding: 2px; /* space for the animated border */
+  background: linear-gradient(90deg, #8a2be6 0%, #1e90ff 50%, #00bfff 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 220ms ease, transform 220ms ease;
+  z-index: -2;
 }
 
 .nav-link:hover {
   color: #ffffff;
   border-color: rgba(138, 43, 226, 0.9);
-  text-shadow: 0 0 8px rgba(255, 255, 255, 0.9),
-               0 0 16px rgba(255, 255, 255, 0.6),
-               0 0 24px rgba(138, 43, 226, 0.4);
-  font-weight: 600;
   transform: translateY(-2px);
-  background: rgba(30, 30, 40, 0.9);
+  background: rgba(30, 30, 40, 0.95);
+  text-shadow: 0 0 6px rgba(255,255,255,0.85);
 }
 
 /* Glow effect around the button */
-.nav-link::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border-radius: 25px;
-  background: linear-gradient(135deg, transparent, rgba(102, 126, 234, 0.1), transparent);
-  opacity: 0;
-  transition: all 0.3s ease;
-  z-index: -2;
+.nav-link:focus,
+.nav-link:active {
+  outline: none;
+  box-shadow: 0 6px 18px rgba(16,24,40,0.35);
 }
 
-.nav-link:hover::after {
+/* Show the animated border on hover/focus/active */
+.nav-link:hover::after,
+.nav-link:focus::after,
+.nav-link:active::after {
   opacity: 1;
-  box-shadow: 0 0 30px rgba(102, 126, 234, 0.5);
+  transform: scale(1.02);
+}
+
+/* Slight press animation */
+.nav-link:active {
+  transform: translateY(0);
+  transition: transform 70ms ease;
 }
 
 .hamburger {
