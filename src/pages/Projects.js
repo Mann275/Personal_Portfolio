@@ -10,8 +10,8 @@ const Projects = () => {
       description: 'A smart placement prep platform built with the MERN stack and Python. It creates AI-based roadmaps, mock tests, and checklists based on student goals and skills.',
       image: `${process.env.PUBLIC_URL}/assets/Crackit.png`,
       technologies: ['React', 'Node.js', 'MongoDB', 'Python', 'AI/ML'],
-      liveDemo: '#',
-      sourceCode: '#',
+      liveDemo: 'https://crackit-ai-ueu5.onrender.com/',
+      sourceCode: 'https://github.com/Mann275/CrackIt.AI',
       features: [
         'AI-based learning roadmaps',
         'Real-time chatrooms',
