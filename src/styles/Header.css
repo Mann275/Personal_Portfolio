@@ -176,29 +176,55 @@
     position: fixed;
     top: 0;
     right: -100%;
-    width: 300px;
-    height: 100vh;
-    background: rgba(10, 10, 25, 0.98);
-    backdrop-filter: blur(20px);
+  width: 84%;
+  max-width: 360px;
+  height: 86vh;
+    background: linear-gradient(180deg, rgba(12,14,24,0.94), rgba(10,12,22,0.85));
+    backdrop-filter: blur(8px);
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 2rem;
-    transition: right 0.3s ease;
-    border-left: 1px solid rgba(102, 126, 234, 0.3);
-    border-radius: 0;
-    padding: 2rem;
+    gap: 1.25rem;
+    transition: right 0.24s ease, transform 0.2s ease;
+    padding: 2rem 1rem;
+    box-shadow: 0 12px 40px rgba(4,10,28,0.45);
+    border-radius: 14px 0 0 14px;
+    right: -110%; /* start off-screen */
+    transform: translateX(0);
+    z-index: 1001;
   }
 
   .nav-menu.active {
-    right: 0;
+    right: 1.5%;
+    transform: translateX(-1%);
+  }
+
+  /* overlay behind the nav so clicking outside closes it */
+  .nav-overlay {
+    position: fixed;
+    inset: 0;
+    background: transparent;
+    z-index: 800;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 200ms ease;
+  }
+
+  .nav-overlay.active {
+    background: rgba(2,6,22,0.5);
+    opacity: 1;
+    pointer-events: all;
   }
 
   .nav-link {
-    font-size: 1.2rem;
-    padding: 15px 25px;
-    width: 100%;
+    font-size: 1.05rem;
+    padding: 12px 26px;
+    width: 76%;
+    max-width: 340px;
     text-align: center;
+    margin: 6px 0;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.04);
   }
 
   .close-menu {
@@ -229,6 +255,7 @@
     font-size: 1.1rem;
     padding: 14px 20px;
     margin-bottom: 8px;
+    width: 86%;
   }
 
   .nav-link:hover {

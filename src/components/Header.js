@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/Header.css';
 
 const Header = () => {
@@ -9,6 +9,20 @@ const Header = () => {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
+  // Close on Escape and lock body scroll when menu open
+  useEffect(() => {
+    const onKey = (e) => {
+      if (e.key === 'Escape') closeMenu();
+    };
+    document.addEventListener('keydown', onKey);
+    // lock body scroll when menu open
+    document.body.style.overflow = isMenuOpen ? 'hidden' : '';
+    return () => {
+      document.removeEventListener('keydown', onKey);
+      document.body.style.overflow = '';
+    };
+  }, [isMenuOpen]);
 
   // Close mobile menu
   const closeMenu = () => {
@@ -32,8 +46,11 @@ const Header = () => {
           <img src={`${process.env.PUBLIC_URL}/assets/Logo.png`} alt="Portfolio Logo" />
         </div>
         
-        {/* Navigation menu */}
-        <ul className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>
+  {/* Overlay (click outside to close) */}
+  <div className={`nav-overlay ${isMenuOpen ? 'active' : ''}`} onClick={closeMenu} />
+
+  {/* Navigation menu */}
+  <ul className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>
           <li className="nav-item">
             <button onClick={() => scrollToSection('home')} className="nav-link">
               Home

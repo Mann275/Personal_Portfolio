@@ -30,7 +30,7 @@
 }
 
 .about-tabs {
-  background: rgba(255, 255, 255, 0.08);
+  /* let content define height; avoid fixed min-height to prevent layout shrink on mobile */
   border-radius: 20px;
   padding: 3rem;
   backdrop-filter: blur(15px);
@@ -157,9 +157,9 @@
 }
 
 .skills-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 0.8rem;
   justify-content: center;
 }
 
@@ -168,13 +168,13 @@
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
-  background: rgba(255, 255, 255, 0.05);
-  padding: 1rem;
-  border-radius: 15px;
-  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 0.65rem;
+  border-radius: 12px;
+  transition: transform 180ms ease, background 180ms ease;
   cursor: pointer;
-  border: 1px solid rgba(102, 126, 234, 0.2);
-  min-width: 80px;
+  border: 1px solid rgba(255,255,255,0.03);
+  min-width: 64px;
 }
 
 .skill-item:hover {
@@ -184,8 +184,8 @@
 }
 
 .skill-item img {
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   object-fit: contain;
   filter: drop-shadow(0 0 10px rgba(102, 126, 234, 0.3));
 }
@@ -418,13 +418,53 @@
   }
 }
 
+@media (max-width: 480px) {
+  .skills-list {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.6rem;
+  }
+
+  .skill-item {
+    padding: 0.5rem;
+    min-width: 56px;
+    border-radius: 10px;
+  }
+
+  .skill-item img,
+  .skill-item i {
+    width: 28px;
+    height: 28px;
+    font-size: 28px;
+  }
+
+  .skills-category h4 {
+    font-size: 1rem;
+  }
+}
+
+/* On small screens, make the tabs area scrollable to avoid shrinking other sections */
+@media (max-width: 768px) {
+  /* Keep about tabs inline on mobile - no inner scrolling */
+  .about-tabs {
+    max-height: none;
+    overflow: visible;
+    padding: 1rem 0.5rem;
+    background: transparent;
+    box-shadow: none;
+    border: none;
+  }
+  .tab-buttons {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0.6rem;
+  }
+}
 @media (max-width: 768px) {
   .about-section {
     padding: 3rem 0;
   }
   
   .about-tabs {
-    padding: 1.5rem;
+    padding: 1rem;
   }
   
   .tab-buttons {
@@ -448,8 +488,14 @@
 }
 
 @media (max-width: 480px) {
+  /* On very small screens, remove the boxed tab card and let content flow naturally */
   .about-tabs {
-    padding: 1rem;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0.5rem 0;
+    max-width: 100%;
+    width: 100%;
   }
   
   .experience-item,
@@ -460,5 +506,25 @@
   .experience-item h4,
   .education-item h4 {
     font-size: 1.1rem;
+  }
+
+  /* Make tab buttons compact and inline for a simpler mobile look */
+  .tab-buttons {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+  }
+
+  .tab-button {
+    flex: 0 0 auto;
+    padding: 8px 12px;
+    font-size: 0.88rem;
+    border-radius: 999px;
+  }
+
+  .skills-content {
+    padding-top: 0.5rem;
   }
 }
