@@ -31,6 +31,10 @@ const About = () => {
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" />
                 <span>JavaScript</span>
               </div>
+              <div className="skill-item">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg" alt="SQL" />
+                <span>SQL</span>
+              </div>
             </div>
           </div>
 
@@ -43,6 +47,10 @@ const About = () => {
                 <div className="skill-item">
                   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" />
                   <span>React</span>
+                </div>
+                <div className="skill-item">
+                  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nextjs/nextjs-original.svg" alt="Next.js" />
+                  <span>Next.js</span>
                 </div>
                 <div className="skill-item">
                   <img src="https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg" alt="Tailwind CSS" />
@@ -78,6 +86,10 @@ const About = () => {
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB" />
                 <span>MongoDB</span>
               </div>
+              <div className="skill-item">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" />
+                <span>MySQL</span>
+              </div>
             </div>
           </div>
 
@@ -100,6 +112,10 @@ const About = () => {
               <div className="skill-item">
                 <i className="fas fa-cube"></i>
                 <span>Spline</span>
+              </div>
+              <div className="skill-item">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma" />
+                <span>Figma</span>
               </div>
             </div>
           </div>

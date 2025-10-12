@@ -24,6 +24,27 @@ const Header = () => {
     };
   }, [isMenuOpen]);
 
+  // Close menu when user scrolls or touches outside (mobile friendly)
+  useEffect(() => {
+    if (!isMenuOpen) return;
+
+    const onScroll = () => {
+      closeMenu();
+    };
+    const onTouch = (e) => {
+      // if touch starts outside the nav, close it — overlay already handles clicks, but this covers other cases
+      closeMenu();
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('touchstart', onTouch, { passive: true });
+
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('touchstart', onTouch);
+    };
+  }, [isMenuOpen]);
+
   // Close mobile menu
   const closeMenu = () => {
     setIsMenuOpen(false);

@@ -199,6 +199,32 @@
     transform: translateX(-1%);
   }
 
+  /* When mobile menu opens, animate links in with a subtle slide and reveal the border effect */
+  .nav-menu.active .nav-item .nav-link {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+    animation: slideIn 380ms cubic-bezier(.2,.9,.2,1) forwards;
+  }
+
+  /* Staggered delays for first few items to create a cascading effect */
+  .nav-menu.active .nav-item:nth-child(1) .nav-link { animation-delay: 80ms; }
+  .nav-menu.active .nav-item:nth-child(2) .nav-link { animation-delay: 160ms; }
+  .nav-menu.active .nav-item:nth-child(3) .nav-link { animation-delay: 240ms; }
+  .nav-menu.active .nav-item:nth-child(4) .nav-link { animation-delay: 320ms; }
+  .nav-menu.active .nav-item:nth-child(5) .nav-link { animation-delay: 400ms; }
+  .nav-menu.active .nav-item:nth-child(6) .nav-link { animation-delay: 480ms; }
+
+  /* Reveal the decorative animated border ::after used on desktop */
+  .nav-menu.active .nav-item .nav-link::after {
+    opacity: 1;
+    transform: scale(1.02);
+  }
+
+  @keyframes slideIn {
+    from { opacity: 0; transform: translateY(12px) scale(0.98); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
   /* overlay behind the nav so clicking outside closes it */
   .nav-overlay {
     position: fixed;
@@ -214,6 +240,21 @@
     background: rgba(2,6,22,0.5);
     opacity: 1;
     pointer-events: all;
+  }
+
+  /* scrollbar for the nav menu to match the gradient thumb in attachment */
+  .nav-menu::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .nav-menu::-webkit-scrollbar-track {
+    background: rgba(10,12,22,0.6);
+    border-radius: 10px;
+  }
+
+  .nav-menu::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #a855f7 0%, #3b82f6 100%);
+    border-radius: 10px;
   }
 
   .nav-link {
@@ -237,6 +278,14 @@
 }
 
 @media (max-width: 480px) {
+  /* Remove mobile navigation entirely */
+  .hamburger,
+  .nav-menu,
+  .nav-overlay,
+  .close-menu {
+    display: none !important;
+  }
+
   .nav-container {
     padding: 0 15px;
     height: 60px;
@@ -244,22 +293,5 @@
 
   .logo img {
     height: 40px;
-  }
-
-  .nav-menu {
-    width: 280px;
-    padding: 20px;
-  }
-
-  .nav-link {
-    font-size: 1.1rem;
-    padding: 14px 20px;
-    margin-bottom: 8px;
-    width: 86%;
-  }
-
-  .nav-link:hover {
-    box-shadow: 0 0 12px rgba(64, 168, 255, 0.6),
-                0 0 25px rgba(64, 168, 255, 0.4);
   }
 }
