@@ -39,7 +39,7 @@ const AllProjects = () => {
       ],
       status: 'Completed',
       category: 'Machine Learning',
-      featured: true
+      featured: false
     },
     {
       id: 3,
@@ -57,7 +57,7 @@ const AllProjects = () => {
       ],
       status: 'Completed',
       category: 'Full Stack',
-      featured: true
+      featured: false
     }
   ];
 

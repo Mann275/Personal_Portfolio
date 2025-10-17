@@ -46,34 +46,20 @@
 .profile-container::before {
   content: '';
   position: absolute;
-  width: 800px;
-  height: 800px;
+  width: 350px;
+  height: 350px;
   background: radial-gradient(circle, #8b5cf6 0%, #06b6d4 50%, transparent 70%);
   border-radius: 50%;
-  z-index: -1;
-  animation: rotateGlow 15s linear infinite;
+  z-index: 0;
+  animation: rotateGlow 15s linear infinite, primaryPulse 4s ease-in-out infinite;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  filter: blur(100px);
-  opacity: 0.8;
+  filter: blur(120px);
+  opacity: 1;
 }
 
-/* Secondary pulsing glow */
-.profile-container::after {
-  content: '';
-  position: absolute;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(139, 92, 246, 0.9) 0%, rgba(6, 182, 212, 0.7) 100%);
-  border-radius: 50%;
-  z-index: -2;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  filter: blur(80px);
-  animation: pulse 3s ease-in-out infinite;
-}
+
 
 @keyframes rotateGlow {
   0% {
@@ -81,6 +67,17 @@
   }
   100% {
     transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes primaryPulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 0.9;
   }
 }
 
@@ -111,32 +108,31 @@
   background: linear-gradient(135deg, rgba(139, 92, 246, 0.25), rgba(6, 182, 212, 0.25));
   padding: 4px;
   animation: float 6s ease-in-out infinite;
-  box-shadow: 
-    0 12px 40px rgba(139, 92, 246, 0.5),
-    0 0 0 1px rgba(255, 255, 255, 0.1);
+  z-index: 10;
+  box-shadow: 0 12px 40px rgba(139, 92, 246, 0.3);
 }
 
 .profile-image::before {
   content: '';
   position: absolute;
-  top: -35px;
-  left: -35px;
-  right: -35px;
-  bottom: -35px;
-  background: conic-gradient(from 0deg, rgba(139, 92, 246, 1) 0deg, rgba(6, 182, 212, 1) 120deg, rgba(139, 92, 246, 1) 240deg, rgba(6, 182, 212, 1) 360deg);
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  background: conic-gradient(from 0deg, #8b5cf6, rgb(0, 217, 255), #ff0707, #0824f9);
   border-radius: 50%;
   z-index: -1;
-  animation: rotate 20s linear infinite;
+  animation: ringRotate 0.1s linear infinite;
 }
 
 .profile-image::after {
   content: '';
   position: absolute;
-  top: -10px;
-  left: -10px;
-  right: -10px;
-  bottom: -10px;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.02) 0%, transparent 70%);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: transparent;
   border-radius: 50%;
   z-index: -1;
 }
@@ -384,6 +380,26 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes ringRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes ringPulse {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.02);
   }
 }
 
