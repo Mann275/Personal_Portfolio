@@ -100,6 +100,9 @@ const Header = () => {
 
   // Smooth scroll to section function
   const scrollToSection = (sectionId) => {
+    // Immediately update active section when clicked
+    setActiveSection(sectionId);
+    
     if (isHomePage) {
       const element = document.getElementById(sectionId);
       if (element) {

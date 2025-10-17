@@ -14,9 +14,8 @@
 /* ===== CONTACT SECTION MAIN CONTAINER ===== */
 .contact-section {
   padding: 5rem 0;
-  /* Gradient background transitioning from blue tones */
-  background: linear-gradient(135deg, #0f3460 0%, #1a1a2e 50%, #16213e 100%);
-  border-top: 2px solid rgba(168, 85, 247, 0.3);
+  background: linear-gradient(135deg, var(--surface) 0%, #11142a 60%);
+  border-top: 1px solid rgba(139, 92, 246, 0.12);
   min-height: 100vh;
   display: flex;
   align-items: center;

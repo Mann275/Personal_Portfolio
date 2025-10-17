@@ -16,9 +16,9 @@
   top: 0;
   left: 0;
   width: 100%;
-  background: rgba(10, 10, 25, 0.95); /* Semi-transparent dark background */
+  background: rgba(10, 14, 26, 0.95); /* Semi-transparent dark background */
   backdrop-filter: blur(15px); /* Glass morphism effect */
-  border-bottom: 1px solid rgba(168, 85, 247, 0.1);
+  border-bottom: 1px solid rgba(139, 92, 246, 0.15);
   z-index: 1000; /* High z-index to stay above other content */
   transition: all 0.3s ease;
 }
@@ -37,7 +37,7 @@
   height: 38px;
   width: auto;
   transition: all 0.3s ease;
-  filter: drop-shadow(0 0 10px rgba(168, 85, 247, 0.3));
+  filter: drop-shadow(0 0 10px rgba(139, 92, 246, 0.4));
 }
 
 .nav-menu {
@@ -101,9 +101,9 @@
 
 .nav-link:hover {
   color: #ffffff;
-  border-color: rgba(138, 43, 226, 0.9);
+  border-color: rgba(139, 92, 246, 0.9);
   transform: translateY(-2px);
-  background: rgba(30, 30, 40, 0.95);
+  background: rgba(26, 30, 46, 0.95);
   text-shadow: 0 0 6px rgba(255,255,255,0.85);
 }
 
@@ -111,33 +111,52 @@
 .nav-link:focus,
 .nav-link:active {
   outline: none;
-  box-shadow: 0 6px 18px rgba(16,24,40,0.35);
+  box-shadow: none; /* Remove the ring effect */
 }
 
-/* Show the animated border on hover and focus only */
-.nav-link:hover::after,
-.nav-link:focus::after {
+/* Show the animated border on hover only - not on focus */
+.nav-link:hover::after {
   opacity: 1;
   transform: scale(1.02);
+}
+
+/* Remove focus ring effect completely */
+.nav-link:focus::after {
+  opacity: 0;
+  transform: scale(1);
 }
 
 /* Remove the :active pseudo-class to avoid conflicts */
 .nav-link:active {
   transform: translateY(0);
   transition: transform 70ms ease;
+  outline: none;
+  box-shadow: none; /* Remove any ring on click */
 }
 
 .nav-link.active {
   background: transparent;
-  border: 2px solid #a855f7;
+  border: 2px solid #8b5cf6;
   color: #ffffff;
-  box-shadow: 0 8px 25px rgba(168, 85, 247, 0.25);
+  box-shadow: 0 8px 25px rgba(139, 92, 246, 0.3);
 }
 
 /* Keep animated ring for active state - only for the .active class */
 .nav-link.active::after {
+  opacity: 0; /* Remove the persistent ring */
+  transform: scale(1);
+}
+
+/* Show ring only on hover for active links */
+.nav-link.active:hover::after {
   opacity: 1;
   transform: scale(1.02);
+}
+
+/* Remove any focus ring on active links */
+.nav-link.active:focus::after {
+  opacity: 0;
+  transform: scale(1);
 }
 
 /* Slight press animation */
@@ -291,7 +310,7 @@
   }
 
   .close-menu:hover {
-    color: #a855f7;
+    color: #8b5cf6;
   }
 }
 

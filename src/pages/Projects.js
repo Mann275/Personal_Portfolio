@@ -106,14 +106,14 @@ const Projects = () => {
         <div className="more-projects">
           <p>Want to see more of my work?</p>
           <div className="more-projects-buttons">
-            <Link to="/projects" className="btn btn-primary">
-              <i className="fas fa-folder-open"></i>
-              View All Projects
-            </Link>
-            <a href="https://github.com/Mann275" className="btn btn-outline" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/Mann275" className="btn btn-primary" target="_blank" rel="noopener noreferrer">
               <i className="fab fa-github"></i>
               Explore on GitHub
             </a>
+            <Link to="/projects" className="btn btn-outline">
+              <i className="fas fa-folder-open"></i>
+              View All Projects
+            </Link>
           </div>
         </div>
       </div>

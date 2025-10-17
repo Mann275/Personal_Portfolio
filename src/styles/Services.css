@@ -13,9 +13,8 @@
 /* ===== SERVICES SECTION MAIN CONTAINER ===== */
 .services-section {
   padding: 5rem 0;
-  /* Purple-toned gradient for services section */
-  background: linear-gradient(135deg, #2d1b69 0%, #16213e 50%, #1a1a2e 100%);
-  border-bottom: 2px solid rgba(168, 85, 247, 0.3);
+  background: linear-gradient(135deg, var(--surface) 0%, #11142a 60%);
+  border-bottom: 1px solid rgba(139, 92, 246, 0.12);
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -47,7 +46,7 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(168, 85, 247, 0.1), transparent);
+  background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.15), transparent);
   transition: left 0.5s ease;
 }
 
@@ -57,14 +56,14 @@
 
 .service-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(168, 85, 247, 0.2);
-  border-color: rgba(168, 85, 247, 0.3);
+  box-shadow: 0 20px 40px rgba(139, 92, 246, 0.25);
+  border-color: rgba(139, 92, 246, 0.4);
 }
 
 .service-icon {
   width: 80px;
   height: 80px;
-  background: linear-gradient(135deg, #a855f7 0%, #3b82f6 100%);
+  background: linear-gradient(135deg, #8b5cf6 0%, #06b6d4 100%);
   border-radius: 20px;
   display: flex;
   align-items: center;
@@ -116,19 +115,19 @@
   content: '✓';
   position: absolute;
   left: 0;
-  color: #a855f7;
+  color: #8b5cf6;
   font-weight: bold;
   font-size: 1.2rem;
 }
 
 .service-features li:hover {
-  color: #a855f7;
+  color: #8b5cf6;
 }
 
 .service-btn {
   background: transparent;
-  color: #a855f7;
-  border: 2px solid #a855f7;
+  color: #8b5cf6;
+  border: 2px solid #8b5cf6;
   padding: 12px 24px;
   border-radius: 25px;
   font-weight: 600;
@@ -138,7 +137,7 @@
 }
 
 .service-btn:hover {
-  background: #a855f7;
+  background: #8b5cf6;
   color: white;
   transform: translateY(-2px);
 }

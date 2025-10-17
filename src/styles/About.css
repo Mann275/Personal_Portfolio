@@ -14,9 +14,8 @@
 /* ===== ABOUT SECTION MAIN CONTAINER ===== */
 .about-section {
   padding: 5rem 0;
-  /* Multi-color gradient background for visual appeal */
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 30%, #0f3460 70%, #1a1a2e 100%);
-  border-bottom: 2px solid rgba(168, 85, 247, 0.3);
+  background: linear-gradient(135deg, var(--surface) 0%, #11142a 60%);
+  border-bottom: 1px solid rgba(139, 92, 246, 0.12);
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -34,7 +33,7 @@
   border-radius: 20px;
   padding: 3rem;
   backdrop-filter: blur(15px);
-  border: 2px solid rgba(102, 126, 234, 0.2);
+  border: 2px solid rgba(139, 92, 246, 0.25);
   max-width: 1000px;
   width: 100%;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
@@ -57,23 +56,25 @@
   justify-content: center;
   gap: 0.5rem;
   padding: 15px 20px;
-  background: transparent;
-  color: rgba(255, 255, 255, 0.7);
-  border: none;
+  background: rgba(255, 255, 255, 0.03);
+  color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 10px;
   font-size: 1rem;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
   text-align: center;
+  backdrop-filter: blur(10px);
 }
 
 .tab-button.active,
 .tab-button:hover {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  background: rgba(30, 30, 40, 0.9);
+  color: #ffffff;
+  border: 1px solid rgba(168, 85, 247, 0.5);
   transform: translateY(-1px);
-  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+  box-shadow: 0 5px 15px rgba(168, 85, 247, 0.2);
 }
 
 .tab-content {

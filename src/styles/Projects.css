@@ -13,9 +13,8 @@
 /* ===== PROJECTS SECTION MAIN CONTAINER ===== */
 .projects-section {
   padding: 4rem 0;
-  /* Gradient background with project-focused color scheme */
-  background: linear-gradient(135deg, #1a1a2e 0%, #0f3460 50%, #16213e 100%);
-  border-bottom: 2px solid rgba(168, 85, 247, 0.3);
+  background: linear-gradient(135deg, var(--surface) 0%, #11142a 60%);
+  border-bottom: 1px solid rgba(139, 92, 246, 0.12);
 }
 
 .projects-grid {
@@ -39,7 +38,7 @@
 
 .project-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(168, 85, 247, 0.3);
+  box-shadow: 0 20px 40px rgba(139, 92, 246, 0.35);
 }
 
 .project-image {
