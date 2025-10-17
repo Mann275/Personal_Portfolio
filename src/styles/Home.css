@@ -48,20 +48,20 @@
   position: absolute;
   width: 350px;
   height: 350px;
-  background: radial-gradient(circle, #8b5cf6 0%, #06b6d4 50%, transparent 70%);
+  background: conic-gradient(from 0deg, #aa52f2, #663788, #5858f8, #5ff65f, #f46262, #aa52f2);
   border-radius: 50%;
   z-index: 0;
-  animation: rotateGlow 15s linear infinite, primaryPulse 4s ease-in-out infinite;
+  animation: backgroundRotate 8s linear infinite, backgroundPulse 4s ease-in-out infinite;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
   filter: blur(120px);
-  opacity: 1;
+  opacity: 0.8;
 }
 
 
 
-@keyframes rotateGlow {
+@keyframes backgroundRotate {
   0% {
     transform: translate(-50%, -50%) rotate(0deg);
   }
@@ -70,14 +70,14 @@
   }
 }
 
-@keyframes primaryPulse {
+@keyframes backgroundPulse {
   0%, 100% {
     transform: translate(-50%, -50%) scale(1);
-    opacity: 0.7;
+    opacity: 0.6;
   }
   50% {
-    transform: translate(-50%, -50%) scale(1.1);
-    opacity: 0.9;
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 1;
   }
 }
 
@@ -119,10 +119,10 @@
   left: -3px;
   right: -3px;
   bottom: -3px;
-  background: conic-gradient(from 0deg, #8b5cf6, rgb(0, 217, 255), #ff0707, #0824f9);
+  background: conic-gradient(from 0deg, #aa52f2, #663788, #5858f8, #81f781, #f6b16c, #f46262,#aa52f2);
   border-radius: 50%;
   z-index: -1;
-  animation: ringRotate 0.1s linear infinite;
+  animation: ringRotate 8s linear infinite;
 }
 
 .profile-image::after {
@@ -187,7 +187,7 @@
 }
 
 .highlight {
-  background: linear-gradient(135deg, #a855f7 0%, #3b82f6 100%);
+  background: linear-gradient(135deg, #a13dfe 0%, #3b82f6 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
