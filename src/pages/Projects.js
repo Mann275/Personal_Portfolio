@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../styles/Projects.css';
 
 const Projects = () => {
@@ -60,11 +61,11 @@ const Projects = () => {
           Here are some of the projects I've worked on that showcase my skills and experience
         </p>
         
-        {/* Projects grid layout */}
+        {/* Projects grid layout - showing only first 3 projects */}
         <div className="projects-grid">
-          {projects.map((project) => (
+          {projects.slice(0, 3).map((project) => (
             <div key={project.id} className="project-card">
-              {/* Project image with overlay */}
+              {/* Project image */}
               <div className="project-image">
                 <img src={project.image} alt={project.title} />
                 <div className="project-overlay">
@@ -90,16 +91,6 @@ const Projects = () => {
                 <h3 className="project-title">{project.title}</h3>
                 <p className="project-description">{project.description}</p>
                 
-                {/* Project features list */}
-                <div className="project-features">
-                  <h4>Key Features:</h4>
-                  <ul>
-                    {project.features.map((feature, index) => (
-                      <li key={index}>{feature}</li>
-                    ))}
-                  </ul>
-                </div>
-                
                 {/* Technology tags */}
                 <div className="project-technologies">
                   {project.technologies.map((tech, index) => (
@@ -114,10 +105,16 @@ const Projects = () => {
         {/* More projects section */}
         <div className="more-projects">
           <p>Want to see more of my work?</p>
-          <a href="https://github.com/Mann275" className="btn btn-outline" target="_blank" rel="noopener noreferrer">
-            <i className="fab fa-github"></i>
-            View All Projects on GitHub
-          </a>
+          <div className="more-projects-buttons">
+            <Link to="/projects" className="btn btn-primary">
+              <i className="fas fa-folder-open"></i>
+              View All Projects
+            </Link>
+            <a href="https://github.com/Mann275" className="btn btn-outline" target="_blank" rel="noopener noreferrer">
+              <i className="fab fa-github"></i>
+              Explore on GitHub
+            </a>
+          </div>
         </div>
       </div>
     </section>
