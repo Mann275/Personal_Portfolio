@@ -47,7 +47,7 @@ const Home = () => {
           {/* Profile image container - Left side */}
           <div className="profile-container">
             <div className="profile-image">
-              <img src={`${process.env.PUBLIC_URL}/assets/Myself.png`} alt="Patel Mann - Full Stack Developer" />
+              <img src={`${process.env.PUBLIC_URL}/assets/Myself.png`} alt="Patel Mann" />
               <div className="profile-overlay"></div>
             </div>
           </div>

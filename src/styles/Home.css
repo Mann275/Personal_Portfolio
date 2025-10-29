@@ -105,11 +105,11 @@
   border-radius: 50%;
   overflow: hidden;
   border: 3px solid transparent;
-  background: linear-gradient(135deg, rgba(139, 92, 246, 0.25), rgba(6, 182, 212, 0.25));
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.25), rgba(6, 182, 212, 0.25));
   padding: 4px;
   animation: float 6s ease-in-out infinite;
   z-index: 10;
-  box-shadow: 0 12px 40px rgba(139, 92, 246, 0.3);
+  box-shadow: 0 12px 40px rgba(102, 126, 234, 0.4), 0 8px 25px rgba(6, 182, 212, 0.2);
 }
 
 .profile-image::before {
@@ -119,7 +119,12 @@
   left: -3px;
   right: -3px;
   bottom: -3px;
-  background: conic-gradient(from 0deg, #aa52f2, #663788, #5858f8, #81f781, #f6b16c, #f46262,#aa52f2);
+  background: conic-gradient(from 0deg, 
+    #667eea 0%, 
+    #764ba2 25%, 
+    #8b5cf6 50%, 
+    #06b6d4 75%, 
+    #667eea 100%);
   border-radius: 50%;
   z-index: -1;
   animation: ringRotate 8s linear infinite;
