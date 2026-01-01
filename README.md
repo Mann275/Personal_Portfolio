@@ -59,7 +59,7 @@ Personal-Portfolio/
 │   │   ├── FinHack.jpeg    # Project images
 │   │   ├── Logo.png        # Portfolio logo
 │   │   ├── Myself.png      # Profile picture
-│   │   └── Resume_Mann.pdf # Downloadable resume
+│   │   └── Mann.pdf # Downloadable resume
 │   └── manifest.json       # PWA configuration (updated)
 │
 ├── src/                    # Source code directory

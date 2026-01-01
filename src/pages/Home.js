@@ -71,7 +71,7 @@ const Home = () => {
               
               {/* Call-to-action buttons */}
               <div className="cta-buttons">
-                <a href={`${process.env.PUBLIC_URL}/assets/Resume_Mann.pdf`} download className="btn btn-primary">
+                <a href={`${process.env.PUBLIC_URL}/assets/Mann.pdf`} download className="btn btn-primary">
                   <i className="fas fa-download"></i>
                   Download Resume
                 </a>
