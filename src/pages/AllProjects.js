@@ -7,6 +7,24 @@ const AllProjects = () => {
   const allProjects = [
     {
       id: 1,
+      title: 'ChatGPT PromptJump',
+      description: 'A lightweight Chrome extension that lets users instantly jump to any prompt in long ChatGPT conversations. Designed for speed, simplicity, and complete privacy with 100% local execution.',
+      image: `${process.env.PUBLIC_URL}/assets/promptjump.png`,
+      technologies: ['JavaScript', 'Chrome Extension API', 'HTML', 'CSS'],
+      liveDemo: 'https://chromewebstore.google.com/detail/icbbbaodpbboephpmebcaejcgbcidcph?utm_source=item-share-cb',
+      sourceCode: 'https://github.com/Mann275/ChatGPT__PromptJump',
+      features: [
+        'Instant jump to any message',
+        'Fast in-chat search',
+        'Clean floating UI panel',
+        'Fully local & privacy-first'
+      ],
+      status: 'Completed',
+      category: 'Tools',
+      featured: true
+    },
+    {
+      id: 2,
       title: 'CrackIt.AI',
       description: 'A smart placement prep platform built with the MERN stack and Python. It creates AI-based roadmaps, mock tests, and checklists based on student goals and skills.',
       image: `${process.env.PUBLIC_URL}/assets/Crackit.png`,
@@ -22,24 +40,6 @@ const AllProjects = () => {
       status: 'Completed',
       category: 'Full Stack',
       featured: true
-    },
-    {
-      id: 2,
-      title: 'NoNap Drive',
-      description: 'A Python + OpenCV-based system that detects drowsiness using facial landmarks and alerts drivers with a buzzer and SMS.',
-      image: `${process.env.PUBLIC_URL}/assets/driver.png`,
-      technologies: ['Python', 'OpenCV', 'Machine Learning', 'SMS API'],
-      liveDemo: null,
-      sourceCode: 'https://github.com/Mann275/NoNap-Drive',
-      features: [
-        'Real-time drowsiness detection',
-        'Facial landmark analysis',
-        'Buzzer alerts',
-        'SMS notifications'
-      ],
-      status: 'Completed',
-      category: 'Machine Learning',
-      featured: false
     },
     {
       id: 3,
@@ -58,11 +58,29 @@ const AllProjects = () => {
       status: 'Completed',
       category: 'Full Stack',
       featured: false
+    },
+    {
+      id: 4,
+      title: 'NoNap Drive',
+      description: 'A Python + OpenCV-based system that detects drowsiness using facial landmarks and alerts drivers with a buzzer and SMS.',
+      image: `${process.env.PUBLIC_URL}/assets/driver.png`,
+      technologies: ['Python', 'OpenCV', 'Machine Learning', 'SMS API'],
+      liveDemo: null,
+      sourceCode: 'https://github.com/Mann275/NoNap-Drive',
+      features: [
+        'Real-time drowsiness detection',
+        'Facial landmark analysis',
+        'Buzzer alerts',
+        'SMS notifications'
+      ],
+      status: 'Completed',
+      category: 'Other',
+      featured: false
     }
   ];
 
   const [filter, setFilter] = React.useState('All');
-  const categories = ['All', 'Featured', 'Full Stack', 'Frontend', 'Machine Learning'];
+  const categories = ['All', 'Featured', 'Full Stack', 'Tools', 'Other'];
 
   const filteredProjects = filter === 'All' 
     ? allProjects 
@@ -146,7 +164,7 @@ const AllProjects = () => {
                       {project.liveDemo && (
                         <a href={project.liveDemo} className="project-link" target="_blank" rel="noopener noreferrer">
                           <i className="fas fa-external-link-alt"></i>
-                          {project.title === 'FinHack' ? 'About' : 'Live Demo'}
+                          {project.title === 'FinHack' ? 'About' : project.title === 'ChatGPT PromptJump' ? 'Live Tool' : 'Live Demo'}
                         </a>
                       )}
                       <a href={project.sourceCode} className="project-link" target="_blank" rel="noopener noreferrer">

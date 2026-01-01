@@ -7,6 +7,21 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
+      title: 'ChatGPT PromptJump',
+      description: 'A lightweight Chrome extension that lets users instantly jump to any prompt in long ChatGPT conversations. Designed for speed, simplicity, and complete privacy with 100% local execution.',
+      image: `${process.env.PUBLIC_URL}/assets/promptjump.png`,
+      technologies: ['JavaScript', 'Chrome Extension API', 'HTML', 'CSS'],
+      liveDemo: 'https://chromewebstore.google.com/detail/icbbbaodpbboephpmebcaejcgbcidcph?utm_source=item-share-cb',
+      sourceCode: 'https://github.com/Mann275/ChatGPT__PromptJump',
+      features: [
+        'Instant jump to any message',
+        'Fast in-chat search',
+        'Clean floating UI panel',
+        'Fully local & privacy-first'
+      ]
+    },
+    {
+      id: 2,
       title: 'CrackIt.AI',
       description: 'A smart placement prep platform built with the MERN stack and Python. It creates AI-based roadmaps, mock tests, and checklists based on student goals and skills.',
       image: `${process.env.PUBLIC_URL}/assets/Crackit.png`,
@@ -18,21 +33,6 @@ const Projects = () => {
         'Real-time chatrooms',
         'Progress tracking',
         'Personalized learning paths'
-      ]
-    },
-    {
-      id: 2,
-      title: 'NoNap Drive',
-      description: 'A Python + OpenCV-based system that detects drowsiness using facial landmarks and alerts drivers with a buzzer and SMS.',
-      image: `${process.env.PUBLIC_URL}/assets/driver.png`,
-      technologies: ['Python', 'OpenCV', 'Machine Learning', 'SMS API'],
-      liveDemo: null, // No live demo available
-      sourceCode: 'https://github.com/Mann275/NoNap-Drive',
-      features: [
-        'Real-time drowsiness detection',
-        'Facial landmark analysis',
-        'Buzzer alerts',
-        'SMS notifications'
       ]
     },
     {
@@ -48,6 +48,21 @@ const Projects = () => {
         'Budget management',
         'Data visualization',
         'Financial insights'
+      ]
+    },
+    {
+      id: 4,
+      title: 'NoNap Drive',
+      description: 'A Python + OpenCV-based system that detects drowsiness using facial landmarks and alerts drivers with a buzzer and SMS.',
+      image: `${process.env.PUBLIC_URL}/assets/driver.png`,
+      technologies: ['Python', 'OpenCV', 'Machine Learning', 'SMS API'],
+      liveDemo: null, // No live demo available
+      sourceCode: 'https://github.com/Mann275/NoNap-Drive',
+      features: [
+        'Real-time drowsiness detection',
+        'Facial landmark analysis',
+        'Buzzer alerts',
+        'SMS notifications'
       ]
     }
   ];
@@ -74,7 +89,7 @@ const Projects = () => {
                     {project.liveDemo && (
                       <a href={project.liveDemo} className="project-link" target="_blank" rel="noopener noreferrer">
                         <i className="fas fa-external-link-alt"></i>
-                        {project.title === 'FinHack' ? 'About' : 'Live Demo'}
+                        {project.title === 'FinHack' ? 'About' : project.title === 'ChatGPT PromptJump' ? 'Live Tool' : 'Live Demo'}
                       </a>
                     )}
                     {/* GitHub source code link */}
