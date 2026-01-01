@@ -9,7 +9,7 @@ const Projects = () => {
       id: 1,
       title: 'ChatGPT PromptJump',
       description: 'A lightweight Chrome extension that lets users instantly jump to any prompt in long ChatGPT conversations. Designed for speed, simplicity, and complete privacy with 100% local execution.',
-      image: `${process.env.PUBLIC_URL}/assets/promptjump.png`,
+      image: `${process.env.PUBLIC_URL}/assets/Promptjump.png`,
       technologies: ['JavaScript', 'Chrome Extension API', 'HTML', 'CSS'],
       liveDemo: 'https://chromewebstore.google.com/detail/icbbbaodpbboephpmebcaejcgbcidcph?utm_source=item-share-cb',
       sourceCode: 'https://github.com/Mann275/ChatGPT__PromptJump',
