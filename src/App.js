@@ -37,7 +37,7 @@ function App() {
     };
 
     // Set minimum loading time of 4 seconds
-    const minLoadTime = new Promise(resolve => setTimeout(resolve, 4000));
+    const minLoadTime = new Promise(resolve => setTimeout(resolve, 2000));
     
     // Wait for both minimum time and image preloading
     Promise.all([minLoadTime, preloadImages()]).then(() => {
