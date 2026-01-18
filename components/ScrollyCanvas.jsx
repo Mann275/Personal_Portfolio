@@ -122,18 +122,9 @@ export default function ScrollyCanvas() {
 }
 
 function LoadingIndicator({ progress }) {
-  const [dots, setDots] = useState("");
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setDots((prev) => (prev.length < 3 ? prev + "." : ""));
-    }, 500);
-    return () => clearInterval(interval);
-  }, []);
-
   return (
-    <div className="absolute top-4 left-4 text-white z-50 font-mono text-2xl font-bold drop-shadow-md">
-      Loading{dots} {progress}%
+    <div className="absolute top-4 left-4 text-white z-50 font-mono text-lg md:text-2xl font-bold drop-shadow-md">
+      Loading {progress}%
     </div>
   );
 }
