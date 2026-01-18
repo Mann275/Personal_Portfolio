@@ -1,119 +1,139 @@
-'use client';
+"use client";
 
-import { useScroll, useMotionValueEvent } from 'framer-motion';
-import { useRef, useEffect, useState } from 'react';
-import Overlay from './Overlay';
+import { useScroll, useMotionValueEvent } from "framer-motion";
+import { useRef, useEffect, useState } from "react";
+import Overlay from "./Overlay";
 
-const frameCount = 120;
+const frameCount = 95;
 
 export default function ScrollyCanvas() {
-    const containerRef = useRef(null);
-    const canvasRef = useRef(null);
-    const [images, setImages] = useState([]);
-    const [isLoaded, setIsLoaded] = useState(false);
+  const containerRef = useRef(null);
+  const canvasRef = useRef(null);
+  const [images, setImages] = useState([]);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [loadProgress, setLoadProgress] = useState(0);
 
-    // Preload images
-    useEffect(() => {
-        const loadedImages = [];
-        let loadedCount = 0;
+  // Preload images
+  useEffect(() => {
+    const loadedImages = [];
+    let loadedCount = 0;
 
-        for (let i = 0; i < frameCount; i++) {
-            const img = new Image();
-            const frameIndex = i.toString().padStart(3, '0');
-            img.src = `/sequence/frame_${frameIndex}.png`;
-            img.onload = () => {
-                loadedCount++;
-                if (loadedCount === frameCount) {
-                    setIsLoaded(true);
-                }
-            };
-            loadedImages.push(img);
+    for (let i = 0; i < frameCount; i++) {
+      const img = new Image();
+      const frameIndex = i.toString().padStart(2, "0");
+      img.src = `/sequence/frame_${frameIndex}.png`;
+      img.onload = () => {
+        loadedCount++;
+        setLoadProgress(Math.round((loadedCount / frameCount) * 100));
+        if (loadedCount === frameCount) {
+          setIsLoaded(true);
         }
-        setImages(loadedImages);
-    }, []);
+      };
+      loadedImages.push(img);
+    }
+    setImages(loadedImages);
+  }, []);
 
-    const { scrollYProgress } = useScroll({
-        target: containerRef,
-        offset: ['start start', 'end end'],
-    });
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"],
+  });
 
-    const renderFrame = (index) => {
-        const canvas = canvasRef.current;
-        const ctx = canvas?.getContext('2d');
-        const img = images[index];
+  const renderFrame = (index) => {
+    const canvas = canvasRef.current;
+    const ctx = canvas?.getContext("2d");
+    const img = images[index];
 
-        if (!canvas || !ctx || !img) return;
+    if (!canvas || !ctx || !img) return;
 
-        // Canvas sizing to cover the screen (object-fit: cover logic)
-        const { width, height } = canvas;
-        const imgRatio = img.width / img.height;
-        const canvasRatio = width / height;
+    // Canvas sizing to cover the screen (object-fit: cover logic)
+    const { width, height } = canvas;
+    const imgRatio = img.width / img.height;
+    const canvasRatio = width / height;
 
-        let drawWidth, drawHeight, offsetX, offsetY;
+    let drawWidth, drawHeight, offsetX, offsetY;
 
-        if (canvasRatio > imgRatio) {
-            drawWidth = width;
-            drawHeight = width / imgRatio;
-            offsetX = 0;
-            offsetY = (height - drawHeight) / 2;
-        } else {
-            drawWidth = height * imgRatio;
-            drawHeight = height;
-            offsetX = (width - drawWidth) / 2;
-            offsetY = 0;
-        }
+    if (canvasRatio > imgRatio) {
+      drawWidth = width;
+      drawHeight = width / imgRatio;
+      offsetX = 0;
+      offsetY = (height - drawHeight) / 2;
+    } else {
+      drawWidth = height * imgRatio;
+      drawHeight = height;
+      offsetX = (width - drawWidth) / 2;
+      offsetY = 0;
+    }
 
-        ctx.clearRect(0, 0, width, height);
-        ctx.drawImage(img, offsetX, offsetY, drawWidth, drawHeight);
-    };
+    ctx.clearRect(0, 0, width, height);
+    ctx.drawImage(img, offsetX, offsetY, drawWidth, drawHeight);
+  };
 
-    useMotionValueEvent(scrollYProgress, 'change', (latest) => {
-        if (!isLoaded || images.length === 0) return;
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    if (!isLoaded || images.length === 0) return;
 
-        // Map progress 0-1 to frame index 0-119
-        const frameIndex = Math.min(
-            frameCount - 1,
-            Math.floor(latest * frameCount)
-        );
-
-        renderFrame(frameIndex);
-    });
-
-    // Handle Resize
-    useEffect(() => {
-        const handleResize = () => {
-            if (canvasRef.current) {
-                canvasRef.current.width = window.innerWidth;
-                canvasRef.current.height = window.innerHeight;
-            }
-        };
-        window.addEventListener('resize', handleResize);
-        handleResize(); // Init size
-        return () => window.removeEventListener('resize', handleResize);
-    }, [isLoaded, images]);
-
-    // Initial render when loaded
-    useEffect(() => {
-        if (isLoaded && images.length > 0) {
-            renderFrame(0);
-        }
-    }, [isLoaded, images]);
-
-    return (
-        <div ref={containerRef} className="relative h-[500vh] bg-[#121212]">
-            <div className="sticky top-0 h-screen w-full overflow-hidden">
-                <canvas
-                    ref={canvasRef}
-                    className="block h-full w-full object-cover"
-                />
-                <Overlay scrollYProgress={scrollYProgress} />
-
-                {!isLoaded && (
-                    <div className="absolute inset-0 flex items-center justify-center text-white z-50 bg-[#121212]">
-                        Loading...
-                    </div>
-                )}
-            </div>
-        </div>
+    // Map progress 0-1 to frame index 0-94
+    const frameIndex = Math.min(
+      frameCount - 1,
+      Math.floor(latest * frameCount),
     );
+
+    renderFrame(frameIndex);
+  });
+
+  // Handle Resize
+  useEffect(() => {
+    const handleResize = () => {
+      if (canvasRef.current) {
+        canvasRef.current.width = window.innerWidth;
+        canvasRef.current.height = window.innerHeight;
+      }
+    };
+    window.addEventListener("resize", handleResize);
+    handleResize(); // Init size
+    return () => window.removeEventListener("resize", handleResize);
+  }, [isLoaded, images]);
+
+  // Initial render when loaded
+  useEffect(() => {
+    if (isLoaded && images.length > 0) {
+      renderFrame(0);
+    }
+  }, [isLoaded, images]);
+
+  return (
+    <div ref={containerRef} className="relative h-[500vh] bg-[#121212]" style={{ position: "relative" }}>
+      <div className="sticky top-0 h-screen w-full overflow-hidden">
+        {/* Fallback Image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center z-0"
+          style={{ backgroundImage: "url('/hero_bg.png')" }}
+        />
+
+        <canvas ref={canvasRef} className="block h-full w-full object-cover relative z-10" />
+        <Overlay scrollYProgress={scrollYProgress} />
+
+        {!isLoaded && (
+          <LoadingIndicator progress={loadProgress} />
+        )}
+      </div>
+    </div>
+  );
+}
+
+function LoadingIndicator({ progress }) {
+  const [dots, setDots] = useState("");
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setDots((prev) => (prev.length < 3 ? prev + "." : ""));
+    }, 500);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div className="absolute top-4 left-4 text-white z-50 font-mono text-2xl font-bold drop-shadow-md">
+      Loading{dots} {progress}%
+    </div>
+  );
 }
