@@ -1,6 +1,7 @@
 import { Inter, Rubik_Glitch, Averia_Gruesa_Libre } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import { Analytics } from "@vercel/analytics/next";
 
 const inter = Inter({ subsets: ["latin"] });
 const rubikGlitch = Rubik_Glitch({
@@ -28,6 +29,7 @@ export default function RootLayout({ children }) {
       <body className={`${inter.className} ${rubikGlitch.variable} ${averia.variable} bg-[#121212] text-white relative overflow-x-hidden`}>
         <Navbar />
         {children}
+        <Analytics />
       </body>
     </html>
   );
