@@ -1,14 +1,14 @@
-'use client';
+"use client";
 
-import ScrollyCanvas from '@/components/ScrollyCanvas';
-import Projects from '@/components/Projects';
-import About from '@/components/About';
-import Skills from '@/components/Skills';
-import Services from '@/components/Services';
-import Experience from '@/components/Experience';
-import Contact from '@/components/Contact';
+import ScrollyCanvas from "@/components/ScrollyCanvas";
+import Projects from "@/components/Projects";
+import About from "@/components/About";
+import Skills from "@/components/Skills";
+import Services from "@/components/Services";
+import Experience from "@/components/Experience";
+import Contact from "@/components/Contact";
 
-import ScrollToTop from '@/components/ScrollToTop';
+import ScrollToTop from "@/components/ScrollToTop";
 
 export default function Home() {
   return (
@@ -16,7 +16,9 @@ export default function Home() {
       <ScrollToTop />
       {/* Hero Section with Scrollytelling */}
       <section id="home" className="relative">
-        <ScrollyCanvas />
+        <div className="relative">
+          <ScrollyCanvas />
+        </div>
       </section>
 
       {/* Content Sections */}

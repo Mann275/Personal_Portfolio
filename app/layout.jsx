@@ -5,28 +5,36 @@ import { Analytics } from "@vercel/analytics/next";
 
 const inter = Inter({ subsets: ["latin"] });
 const rubikGlitch = Rubik_Glitch({
-  weight: '400',
-  subsets: ['latin'],
-  variable: '--font-rubik-glitch',
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-rubik-glitch",
 });
 const averia = Averia_Gruesa_Libre({
-  weight: '400',
-  subsets: ['latin'],
-  variable: '--font-averia',
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-averia",
 });
 
 export const metadata = {
   title: "Mann Patel | Full Stack Developer | Portfolio",
   description: "Creative Developer Portfolio",
   icons: {
-    icon: '/favicon1.png',
+    icon: "/favicon1.png",
   },
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body className={`${inter.className} ${rubikGlitch.variable} ${averia.variable} bg-[#121212] text-white relative overflow-x-hidden`}>
+    <html
+      lang="en"
+      className="scroll-smooth"
+      data-scroll-behavior="smooth"
+      suppressHydrationWarning
+    >
+      <body
+        className={`${inter.className} ${rubikGlitch.variable} ${averia.variable} bg-[#121212] text-white relative overflow-x-hidden`}
+        suppressHydrationWarning
+      >
         <Navbar />
         {children}
         <Analytics />

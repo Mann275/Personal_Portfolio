@@ -1,4 +1,4 @@
-# Mann Patel | Creative Developer Portfolio
+# Mann Patel | Creative Developer Portfolio | Parallax Website
 
 ![Portfolio Banner](https://capsule-render.vercel.app/api?type=waving&color=gradient&height=300&section=header&text=Mann%20Patel&fontSize=90&animation=fadeIn&fontAlignY=38&desc=Full%20Stack%20Developer%20%7C%20Creative%20Coder&descAlignY=51&descAlign=62)
 

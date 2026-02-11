@@ -1,42 +1,49 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { projects } from "@/lib/projectData";
+import { FaGithub, FaExternalLinkAlt, FaArrowLeft } from "react-icons/fa";
 
-export default function Projects() {
-  const router = useRouter();
-
-  const handleCardClick = (slug) => {
-    router.push(`/projects/${slug}`);
-  };
-
+export default function ProjectsPage() {
   return (
-    <section id="projects" className="relative w-full py-24 px-6 md:px-12 z-20">
-      <div className="max-w-7xl mx-auto">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          className="text-4xl md:text-5xl font-bold mb-12 text-center bg-gradient-to-b from-white to-gray-500 bg-clip-text text-transparent"
+    <main className="min-h-screen bg-[#121212] text-white pt-24 pb-12">
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
+        <Link
+          href="/#projects"
+          className="inline-flex items-center text-gray-400 hover:text-white mb-8 transition-colors group"
         >
-          Featured Projects
-        </motion.h2>
+          <FaArrowLeft className="mr-2" /> Back to Home
+        </Link>
+
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-b from-white to-gray-500 bg-clip-text text-transparent"
+        >
+          All Projects
+        </motion.h1>
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1 }}
+          className="text-xl text-gray-400 mb-16"
+        >
+          A collection of my recent work and side projects
+        </motion.p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <motion.div
               key={project.id}
               initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              onClick={() => handleCardClick(project.slug)}
-              className="group relative bg-white/5 rounded-2xl overflow-hidden border border-white/10 hover:border-purple-500/50 transition-colors flex flex-col h-[450px] cursor-pointer"
+              className="group relative bg-white/5 rounded-2xl overflow-hidden border border-white/10 hover:border-purple-500/50 transition-all duration-300 flex flex-col h-[500px]"
             >
-              {/* Image Area with Hover Overlay */}
-              <div className="h-48 bg-gray-900 w-full relative overflow-hidden group">
+              {/* Image Area */}
+              <div className="h-56 bg-gray-900 w-full relative overflow-hidden">
                 <img
                   src={project.image}
                   alt={project.title}
@@ -69,12 +76,13 @@ export default function Projects() {
                     onClick={(e) => e.stopPropagation()}
                     className="bg-black text-white border border-white px-4 py-2 rounded-full text-sm font-bold flex items-center gap-2 hover:bg-white/20 transition-colors"
                   >
-                    <FaGithub /> Source Code
+                    <FaGithub /> GitHub
                   </a>
                 </div>
               </div>
 
-              <div className="block flex-grow flex flex-col p-6">
+              {/* Content Area */}
+              <div className="flex-grow flex flex-col p-6">
                 <span className="text-sm font-mono text-purple-400 mb-2">
                   {project.category}
                 </span>
@@ -96,54 +104,30 @@ export default function Projects() {
                   ))}
                 </div>
 
-                <div className="flex gap-2 mt-auto">
-                  <span className="text-sm text-purple-400 font-semibold group-hover:underline">
-                    View Details &rarr;
-                  </span>
-                </div>
+                <Link
+                  href={`/projects/${project.slug}`}
+                  className="inline-flex items-center text-purple-400 font-semibold hover:text-purple-300 transition-colors mt-auto"
+                >
+                  View Full Details
+                  <svg
+                    className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                </Link>
               </div>
             </motion.div>
           ))}
         </div>
-
-        {/* Action Buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          viewport={{ once: true }}
-          className="flex flex-wrap justify-center gap-4 mt-12"
-        >
-          <a
-            href="https://github.com/Mann275"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white px-6 py-3 rounded-full font-semibold text-sm border border-white/20 hover:bg-white/20 hover:border-white/30 transition-all duration-300"
-          >
-            <FaGithub className="text-lg" />
-            View GitHub
-          </a>
-          <Link
-            href="/projects"
-            className="group flex items-center gap-2 bg-purple-500/20 backdrop-blur-sm text-purple-300 px-6 py-3 rounded-full font-semibold text-sm border border-purple-500/30 hover:bg-purple-500/30 hover:border-purple-500/50 transition-all duration-300"
-          >
-            View All Projects
-            <svg
-              className="w-4 h-4 group-hover:translate-x-1 transition-transform"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M13 7l5 5m0 0l-5 5m5-5H6"
-              />
-            </svg>
-          </Link>
-        </motion.div>
       </div>
-    </section>
+    </main>
   );
 }
