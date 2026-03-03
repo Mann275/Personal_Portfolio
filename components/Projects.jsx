@@ -6,6 +6,11 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { projects } from "@/lib/projectData";
 
+const FEATURED_SLUGS = ["overclocked", "prompt-jump", "crackit-ai"];
+const featuredProjects = FEATURED_SLUGS.map((slug) =>
+  projects.find((p) => p.slug === slug),
+).filter(Boolean);
+
 export default function Projects() {
   const router = useRouter();
 
@@ -19,13 +24,13 @@ export default function Projects() {
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          className="text-4xl md:text-5xl font-bold mb-12 text-center bg-gradient-to-b from-white to-gray-500 bg-clip-text text-transparent"
+          className="text-4xl md:text-5xl font-bold mb-12 text-center bg-linear-to-b from-white to-gray-500 bg-clip-text text-transparent"
         >
           Featured Projects
         </motion.h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
+          {featuredProjects.map((project, index) => (
             <motion.div
               key={project.id}
               initial={{ opacity: 0, y: 20 }}
@@ -33,7 +38,7 @@ export default function Projects() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
               onClick={() => handleCardClick(project.slug)}
-              className="group relative bg-white/5 rounded-2xl overflow-hidden border border-white/10 hover:border-purple-500/50 transition-colors flex flex-col h-[450px] cursor-pointer"
+              className="group relative bg-white/5 rounded-2xl overflow-hidden border border-white/10 hover:border-purple-500/50 transition-colors flex flex-col h-112.5 cursor-pointer"
             >
               {/* Image Area with Hover Overlay */}
               <div className="h-48 bg-gray-900 w-full relative overflow-hidden group">
@@ -74,19 +79,19 @@ export default function Projects() {
                 </div>
               </div>
 
-              <div className="block flex-grow flex flex-col p-6">
+              <div className="flex grow flex-col p-6">
                 <span className="text-sm font-mono text-purple-400 mb-2">
                   {project.category}
                 </span>
                 <h3 className="text-2xl font-bold text-white mb-3">
                   {project.title}
                 </h3>
-                <p className="text-gray-400 text-sm mb-6 flex-grow line-clamp-3">
+                <p className="text-gray-400 text-sm mb-6 grow line-clamp-3">
                   {project.shortDescription}
                 </p>
 
                 <div className="flex flex-wrap gap-2 mb-6">
-                  {project.tech.map((t) => (
+                  {project.tech.slice(0, 4).map((t) => (
                     <span
                       key={t}
                       className="text-xs bg-white/10 px-2 py-1 rounded text-gray-300"

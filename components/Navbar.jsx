@@ -3,6 +3,8 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const navLinks = [
   { name: "About", href: "#about" },
@@ -13,20 +15,28 @@ const navLinks = [
   { name: "Contact", href: "#contact" },
 ];
 
-import { usePathname, useRouter } from "next/navigation";
-
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [pathname, setPathname] = useState("/");
+  const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
-    try {
-      const path = window.location.pathname;
-      setPathname(path);
-    } catch (e) {
-      setPathname("/");
-    }
+    // Update pathname on mount and route changes
+    const updatePath = () => {
+      try {
+        const path = window.location.pathname;
+        setPathname(path);
+      } catch (e) {
+        setPathname("/");
+      }
+    };
+
+    updatePath();
+
+    // Listen for route changes
+    window.addEventListener("popstate", updatePath);
+    return () => window.removeEventListener("popstate", updatePath);
   }, []);
 
   useEffect(() => {
@@ -47,12 +57,25 @@ export default function Navbar() {
         element.scrollIntoView({ behavior: "smooth" });
       }
     } else {
-      // If on another page, navigate to home + section
+      // If on another page, navigate to home with section
       router.push(`/${href}`);
+      // Update pathname immediately for better UX
+      setTimeout(() => setPathname("/"), 100);
     }
   };
 
-  const [isOpen, setIsOpen] = useState(false);
+  const handleLogoClick = (e) => {
+    e.preventDefault();
+    if (pathname === "/") {
+      // If already on home, scroll to top
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      // If on another page, navigate to home without reload
+      router.push("/");
+      // Update pathname immediately for better UX
+      setTimeout(() => setPathname("/"), 100);
+    }
+  };
 
   return (
     <>
@@ -64,12 +87,16 @@ export default function Navbar() {
         className="fixed top-0 left-0 right-0 z-50 hidden md:flex justify-center py-4"
       >
         <div className="bg-white/10 backdrop-blur-lg border border-white/10 rounded-full px-6 py-3 flex items-center gap-6 max-w-[95vw]">
-          <a href="/" className="no-underline flex-shrink-0">
+          <a
+            href="/"
+            onClick={handleLogoClick}
+            className="no-underline shrink-0"
+          >
             <span className="font-averia font-bold text-2xl cursor-pointer text-gray-300 hover:text-white transition-colors">
               Mann
             </span>
           </a>
-          <div className="w-[1px] h-6 bg-white/20"></div>
+          <div className="w-px h-6 bg-white/20"></div>
           <div className="flex items-center gap-6">
             {navLinks.map((link) => (
               <a
