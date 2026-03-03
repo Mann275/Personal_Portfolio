@@ -19,7 +19,7 @@ export default function ProjectsPage() {
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-b from-white to-gray-500 bg-clip-text text-transparent"
+          className="text-4xl md:text-6xl font-bold mb-6 bg-linear-to-b from-white to-gray-500 bg-clip-text text-transparent"
         >
           All Projects
         </motion.h1>
@@ -40,7 +40,7 @@ export default function ProjectsPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group relative bg-white/5 rounded-2xl overflow-hidden border border-white/10 hover:border-purple-500/50 transition-all duration-300 flex flex-col h-[500px]"
+              className="group relative bg-white/5 rounded-2xl overflow-hidden border border-white/10 hover:border-purple-500/50 transition-all duration-300 flex flex-col h-125"
             >
               {/* Image Area */}
               <div className="h-56 bg-gray-900 w-full relative overflow-hidden">
@@ -82,14 +82,14 @@ export default function ProjectsPage() {
               </div>
 
               {/* Content Area */}
-              <div className="flex-grow flex flex-col p-6">
+              <div className="grow flex flex-col p-6">
                 <span className="text-sm font-mono text-purple-400 mb-2">
                   {project.category}
                 </span>
                 <h3 className="text-2xl font-bold text-white mb-3">
                   {project.title}
                 </h3>
-                <p className="text-gray-400 text-sm mb-6 flex-grow line-clamp-3">
+                <p className="text-gray-400 text-sm mb-6 grow line-clamp-3">
                   {project.shortDescription}
                 </p>
 
