@@ -56,7 +56,7 @@ export const projects = [
       "Personalized learning paths",
     ],
     image: "/projects/Crackit.png",
-    demoLink: "https://crackit-ai-ueu5.onrender.com/",
+    demoLink: "https://crackitai-app.vercel.app/",
     repoLink: "https://github.com/Mann275/CrackIt.AI",
   },
 
