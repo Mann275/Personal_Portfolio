@@ -1,5 +1,3 @@
-"use client";
-
 import { useScroll, useMotionValueEvent } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 import Overlay from "./Overlay";
@@ -102,20 +100,25 @@ export default function ScrollyCanvas() {
   }, [isLoaded, images]);
 
   return (
-    <div ref={containerRef} className="relative h-[500vh] bg-[#121212]" style={{ position: "relative" }}>
+    <div
+      ref={containerRef}
+      className="relative h-[500vh] bg-[#121212]"
+      style={{ position: "relative" }}
+    >
       <div className="sticky top-0 h-screen w-full overflow-hidden">
         {/* Fallback Image */}
         <div
           className="absolute inset-0 bg-cover bg-center z-0"
-          style={{ backgroundImage: "url('/hero_bg.png')" }}
+          style={{ backgroundImage: "url('/hero1.png')" }}
         />
 
-        <canvas ref={canvasRef} className="block h-full w-full object-cover relative z-10" />
+        <canvas
+          ref={canvasRef}
+          className="block h-full w-full object-cover relative z-10"
+        />
         <Overlay scrollYProgress={scrollYProgress} />
 
-        {!isLoaded && (
-          <LoadingIndicator progress={loadProgress} />
-        )}
+        {!isLoaded && <LoadingIndicator progress={loadProgress} />}
       </div>
     </div>
   );

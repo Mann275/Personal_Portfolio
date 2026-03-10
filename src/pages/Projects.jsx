@@ -1,16 +1,14 @@
-"use client";
-
 import { motion } from "framer-motion";
-import Link from "next/link";
+import { Link } from "react-router-dom";
 import { projects } from "@/lib/projectData";
 import { FaGithub, FaExternalLinkAlt, FaArrowLeft } from "react-icons/fa";
 
-export default function ProjectsPage() {
+export default function Projects() {
   return (
     <main className="min-h-screen bg-[#121212] text-white pt-24 pb-12">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <Link
-          href="/#projects"
+          to="/"
           className="inline-flex items-center text-gray-400 hover:text-white mb-8 transition-colors group"
         >
           <FaArrowLeft className="mr-2" /> Back to Home
@@ -19,7 +17,7 @@ export default function ProjectsPage() {
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-4xl md:text-6xl font-bold mb-6 bg-linear-to-b from-white to-gray-500 bg-clip-text text-transparent"
+          className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-b from-white to-gray-500 bg-clip-text text-transparent"
         >
           All Projects
         </motion.h1>
@@ -105,7 +103,7 @@ export default function ProjectsPage() {
                 </div>
 
                 <Link
-                  href={`/projects/${project.slug}`}
+                  to={`/projects/${project.slug}`}
                   className="inline-flex items-center text-purple-400 font-semibold hover:text-purple-300 transition-colors mt-auto"
                 >
                   View Full Details

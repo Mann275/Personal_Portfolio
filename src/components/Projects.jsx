@@ -1,9 +1,7 @@
-"use client";
-
 import { motion } from "framer-motion";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
-import { useRouter } from "next/navigation";
-import Link from "next/link";
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { projects } from "@/lib/projectData";
 
 const FEATURED_SLUGS = ["overclocked", "prompt-jump", "crackit-ai"];
@@ -12,19 +10,22 @@ const featuredProjects = FEATURED_SLUGS.map((slug) =>
 ).filter(Boolean);
 
 export default function Projects() {
-  const router = useRouter();
+  const navigate = useNavigate();
 
   const handleCardClick = (slug) => {
-    router.push(`/projects/${slug}`);
+    navigate(`/projects/${slug}`);
   };
 
   return (
-    <section id="projects" className="relative w-full py-24 px-6 md:px-12 z-20">
+    <section
+      id="projects"
+      className="bg-[#121212] relative w-full py-24 px-6 md:px-12 z-20"
+    >
       <div className="max-w-7xl mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          className="text-4xl md:text-5xl font-bold mb-12 text-center bg-linear-to-b from-white to-gray-500 bg-clip-text text-transparent"
+          className="text-4xl md:text-5xl font-bold mb-12 text-center bg-gradient-to-b from-white to-gray-500 bg-clip-text text-transparent"
         >
           Featured Projects
         </motion.h2>
@@ -129,7 +130,7 @@ export default function Projects() {
             View GitHub
           </a>
           <Link
-            href="/projects"
+            to="/projects"
             className="group flex items-center gap-2 bg-purple-500/20 backdrop-blur-sm text-purple-300 px-6 py-3 rounded-full font-semibold text-sm border border-purple-500/30 hover:bg-purple-500/30 hover:border-purple-500/50 transition-all duration-300"
           >
             View All Projects

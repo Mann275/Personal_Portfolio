@@ -1,0 +1,35 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+:root {
+  --background: #121212;
+  --foreground: #ededed;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .font-inter {
+    font-family: var(--font-inter);
+  }
+
+  .font-rubik-glitch {
+    font-family: var(--font-rubik-glitch);
+  }
+
+  .font-averia {
+    font-family: var(--font-averia);
+  }
+}

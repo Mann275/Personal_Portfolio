@@ -1,5 +1,3 @@
-"use client";
-
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 
@@ -41,7 +39,10 @@ export default function About() {
   }, [text, isDeleting, loopNum, typingSpeed]);
 
   return (
-    <section id="about" className="bg-[#121212] py-20 px-6 md:px-12 text-white">
+    <section
+      id="about"
+      className="bg-[#121212] py-24 px-6 md:px-12 text-white relative"
+    >
       <div className="max-w-6xl mx-auto">
         {/* Centered Heading */}
         <motion.h2

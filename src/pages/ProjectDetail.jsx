@@ -1,40 +1,21 @@
-"use client";
-
 import { motion } from "framer-motion";
-import Link from "next/link";
-import { notFound } from "next/navigation";
+import { Link, useParams, Navigate } from "react-router-dom";
 import { projects } from "@/lib/projectData";
 import { FaGithub, FaExternalLinkAlt, FaArrowLeft } from "react-icons/fa";
 import { useEffect, useState } from "react";
 
-export default function ProjectDetail({ params }) {
+export default function ProjectDetail() {
+  const { slug } = useParams();
   const [project, setProject] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const loadProject = async () => {
-      try {
-        // Await params in Next.js 15+
-        const resolvedParams = await params;
-        const slug = resolvedParams.slug;
-        const foundProject = projects.find((p) => p.slug === slug);
+    const foundProject = projects.find((p) => p.slug === slug);
+    setProject(foundProject);
+    setLoading(false);
+  }, [slug]);
 
-        if (!foundProject) {
-          notFound();
-        }
-
-        setProject(foundProject);
-      } catch (error) {
-        console.error("Error loading project:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    loadProject();
-  }, [params]);
-
-  if (loading || !project) {
+  if (loading) {
     return (
       <main className="min-h-screen bg-[#121212] text-white pt-24 pb-12 flex items-center justify-center">
         <div className="text-xl text-gray-400">Loading...</div>
@@ -42,14 +23,17 @@ export default function ProjectDetail({ params }) {
     );
   }
 
+  if (!project) {
+    return <Navigate to="/projects" replace />;
+  }
+
   return (
     <main className="min-h-screen bg-[#121212] text-white pt-24 pb-12">
       <div className="max-w-5xl mx-auto px-6 md:px-12">
         <Link
-          href="/#projects"
+          to="/projects"
           className="inline-flex items-center text-gray-400 hover:text-white mb-8 transition-colors group"
         >
-          {" "}
           <FaArrowLeft className="mr-2" /> Back to Projects
         </Link>
 

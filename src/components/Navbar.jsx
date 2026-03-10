@@ -1,10 +1,8 @@
-"use client";
-
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
-import { useRouter } from "next/navigation";
-import Link from "next/link";
+import { useNavigate, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const navLinks = [
   { name: "About", href: "#about" },
@@ -17,27 +15,9 @@ const navLinks = [
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [pathname, setPathname] = useState("/");
   const [isOpen, setIsOpen] = useState(false);
-  const router = useRouter();
-
-  useEffect(() => {
-    // Update pathname on mount and route changes
-    const updatePath = () => {
-      try {
-        const path = window.location.pathname;
-        setPathname(path);
-      } catch (e) {
-        setPathname("/");
-      }
-    };
-
-    updatePath();
-
-    // Listen for route changes
-    window.addEventListener("popstate", updatePath);
-    return () => window.removeEventListener("popstate", updatePath);
-  }, []);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -50,31 +30,32 @@ export default function Navbar() {
   const scrollToSection = (e, href) => {
     e.preventDefault();
 
-    if (pathname === "/") {
+    if (location.pathname === "/") {
       // If on homepage, smooth scroll
       const element = document.querySelector(href);
       if (element) {
         element.scrollIntoView({ behavior: "smooth" });
       }
     } else {
-      // If on another page, navigate to home with section
-      router.push(`/${href}`);
-      // Update pathname immediately for better UX
-      setTimeout(() => setPathname("/"), 100);
+      // If on another page, navigate to home first, then scroll
+      navigate("/");
+      // Use setTimeout to ensure page loads before scrolling
+      setTimeout(() => {
+        const element = document.querySelector(href);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
     }
   };
 
   const handleLogoClick = (e) => {
-    e.preventDefault();
-    if (pathname === "/") {
+    if (location.pathname === "/") {
       // If already on home, scroll to top
+      e.preventDefault();
       window.scrollTo({ top: 0, behavior: "smooth" });
-    } else {
-      // If on another page, navigate to home without reload
-      router.push("/");
-      // Update pathname immediately for better UX
-      setTimeout(() => setPathname("/"), 100);
     }
+    // If on another page, Link component will handle navigation to "/"
   };
 
   return (
@@ -87,15 +68,15 @@ export default function Navbar() {
         className="fixed top-0 left-0 right-0 z-50 hidden md:flex justify-center py-4"
       >
         <div className="bg-white/10 backdrop-blur-lg border border-white/10 rounded-full px-6 py-3 flex items-center gap-6 max-w-[95vw]">
-          <a
-            href="/"
+          <Link
+            to="/"
             onClick={handleLogoClick}
             className="no-underline shrink-0"
           >
             <span className="font-averia font-bold text-2xl cursor-pointer text-gray-300 hover:text-white transition-colors">
               Mann
             </span>
-          </a>
+          </Link>
           <div className="w-px h-6 bg-white/20"></div>
           <div className="flex items-center gap-6">
             {navLinks.map((link) => (
@@ -113,14 +94,10 @@ export default function Navbar() {
       </motion.nav>
 
       {/* Mobile Navbar Toggle */}
-      <div
-        className="md:hidden fixed top-6 right-6 z-50"
-        suppressHydrationWarning
-      >
+      <div className="md:hidden fixed top-6 right-6 z-50">
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="text-white p-2 bg-white/10 backdrop-blur-md rounded-lg border border-white/10 focus:outline-none"
-          suppressHydrationWarning
         >
           {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
         </button>

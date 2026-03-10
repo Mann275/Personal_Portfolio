@@ -27,15 +27,6 @@ Hi! I'm **Mann Patel**, a passionate Full-Stack Developer and Computer Science s
 
 ---
 
-## 🛠️ Technologies Used
-
-### Frontend
-
-- **React.js** - Component-based UI library
-- **CSS3** - Advanced styling with animations
-- **JavaScript ES6+** - Modern JavaScript features
-- **Font Awesome** - Icon library
-- **DevIcons CDN** - Technology logos
 
 ## 📬 Connect With Me
 
