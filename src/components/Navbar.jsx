@@ -27,6 +27,18 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Close mobile menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (isOpen && !event.target.closest(".mobile-menu-container")) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [isOpen]);
+
   const scrollToSection = (e, href) => {
     e.preventDefault();
 
@@ -94,38 +106,43 @@ export default function Navbar() {
       </motion.nav>
 
       {/* Mobile Navbar Toggle */}
-      <div className="md:hidden fixed top-6 right-6 z-50">
+      <div className="md:hidden fixed top-4 right-4 z-50 mobile-menu-container">
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="text-white p-2 bg-white/10 backdrop-blur-md rounded-lg border border-white/10 focus:outline-none"
+          className="text-white p-3 bg-white/10 backdrop-blur-md rounded-xl border border-white/20 focus:outline-none shadow-lg"
         >
-          {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
+          {isOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
         </button>
       </div>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Menu Dropdown */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, x: "100%" }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: "100%" }}
-            transition={{ type: "tween", duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-[#121212] flex flex-col items-center justify-center space-y-8 md:hidden"
+            initial={{ opacity: 0, scale: 0.8, y: -20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.8, y: -20 }}
+            transition={{ type: "spring", duration: 0.3 }}
+            className="fixed top-16 right-4 z-40 bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-4 shadow-2xl md:hidden mobile-menu-container"
           >
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={(e) => {
-                  scrollToSection(e, link.href);
-                  setIsOpen(false);
-                }}
-                className="text-2xl text-gray-300 hover:text-white font-bold transition-colors"
-              >
-                {link.name}
-              </a>
-            ))}
+            <div className="flex flex-col space-y-3 min-w-[120px] ">
+              {navLinks.map((link, index) => (
+                <motion.a
+                  key={link.name}
+                  href={link.href}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.05 }}
+                  onClick={(e) => {
+                    scrollToSection(e, link.href);
+                    setIsOpen(false);
+                  }}
+                  className="text-gray-300 hover:text-white font-medium py-2 px-3 rounded-lg hover:bg-white/10 transition-all duration-100 border-white/50 border-b text-center"
+                >
+                  {link.name}
+                </motion.a>
+              ))}
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
