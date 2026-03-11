@@ -109,7 +109,10 @@ export default function ScrollyCanvas() {
         {/* Fallback Image */}
         <div
           className="absolute inset-0 bg-cover bg-center z-0"
-          style={{ backgroundImage: "url('/hero1.png')" }}
+          style={{
+            backgroundImage:
+              "url('https://ik.imagekit.io/Mann27/Personal%20Projects/Mann')",
+          }}
         />
 
         <canvas
