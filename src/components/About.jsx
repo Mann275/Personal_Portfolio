@@ -87,7 +87,7 @@ export default function About() {
                 Contact Me
               </a>
               <a
-                href="https://drive.google.com/file/d/1YKHNYsGdiqlLMOkSbuHq03UsfE-klCim/view?usp=sharing"
+                href="https://drive.google.com/file/d/1YiaXBNYYRHNiVo1EjiCF62LI_nqC1eWQ/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="border border-white text-white px-6 py-3 rounded-full font-semibold hover:bg-white/10 transition-colors"
