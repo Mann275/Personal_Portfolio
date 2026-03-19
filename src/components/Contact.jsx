@@ -160,7 +160,7 @@ export default function Contact() {
                   <FaGithub className="text-2xl" />
                 </a>
                 <a
-                  href="https://www.linkedin.com/in/mann27/"
+                  href="https://www.linkedin.com/in/mann-patel27/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center text-white hover:bg-white/20 hover:text-blue-400 transition-all"
