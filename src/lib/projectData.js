@@ -102,4 +102,24 @@ export const projects = [
     demoLink: "https://over-clocked.vercel.app/",
     repoLink: "https://github.com/Mann275/E-commerce",
   },
+  {
+    id: 6,
+    slug: "emergency-qr",
+    title: "Emergency QR",
+    category: "Full-Stack Web App",
+    shortDescription:
+      "Full-stack emergency profile system with a single stable QR code for instant access.",
+    fullDescription:
+      "Emergency QR is a full-stack emergency profile system. Users create a single profile that generates one stable QR code for instant, read-only access during emergencies. It features a public emergency view showing only critical data, owner-only edits via per-profile edit tokens, and a mobile-first UI with multilingual support (EN/HI/GU). Built for reliability and quick access when it matters most.",
+    tech: ["React", "Node.js", "Express", "MongoDB", "Tailwind CSS", "Firebase Auth"],
+    features: [
+      "One stable QR code per user",
+      "Public emergency view for quick critical data access",
+      "Owner-only profile edits via JWT tokens",
+      "Mobile-first UI with multilingual support",
+    ],
+    image: "https://ik.imagekit.io/shubhampathak/emergency-qr/1.jpeg",
+    demoLink: "https://emergencyqr-gen.vercel.app/",
+    repoLink: "https://github.com/Mann275/Emergency_QR",
+  },
 ];

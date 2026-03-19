@@ -71,12 +71,13 @@ export default function About() {
             </div>
 
             <p className="text-gray-300 text-lg leading-relaxed mb-8">
-              I’m a Computer Science graduate and full-stack developer focused
-              on building clean, scalable web applications using the MERN stack.
-              I enjoy turning ideas into real products with solid UI, reliable
-              backend logic, and performance in mind. Currently looking for
-              opportunities to grow as a full-stack developer and contribute to
-              real-world projects.
+              I’m a software engineer who thrives at the intersection of design
+              and logic. I build high-octane, visually immersive web applications
+              that perform flawlessly under the hood. From fluid frontend animations
+              to bulletproof backend architectures utilizing the MERN stack, I don't
+              just write code—I craft digital experiences that leave a lasting
+              impact. I'm actively seeking opportunities to push boundaries and
+              build the next generation of web products.
             </p>
             <div className="flex gap-4">
               <a

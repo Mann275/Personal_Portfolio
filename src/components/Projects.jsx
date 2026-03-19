@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { projects } from "@/lib/projectData";
 
-const FEATURED_SLUGS = ["overclocked", "prompt-jump", "crackit-ai"];
+const FEATURED_SLUGS = ["emergency-qr", "overclocked", "crackit-ai"];
 const featuredProjects = FEATURED_SLUGS.map((slug) =>
   projects.find((p) => p.slug === slug),
 ).filter(Boolean);
