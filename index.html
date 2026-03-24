@@ -32,7 +32,7 @@
     content="Patel Mann's Portfolio - Engineering the web with precision and passion. Full Stack Developer | MERN Specialist" />
   <meta property="twitter:image" content="https://patelmann.me/link.png" />
 
-  <!-- Structured Data (JSON-LD) -->
+  <!-- Structured Data (JSON-LD) - Person -->
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -40,15 +40,47 @@
       "name": "Patel Mann",
       "alternateName": "Mann Patel",
       "url": "https://patelmann.me/",
+      "image": "https://patelmann.me/link.png",
       "jobTitle": "Full Stack Developer",
-      "alumniOf": "Parul University",
+      "description": "Full Stack MERN Developer specializing in React.js, Node.js, Express.js and MongoDB. Currently in Gujarat, India.",
+      "alumniOf": {
+        "@type": "EducationalOrganization",
+        "name": "Parul University",
+        "address": "Gujarat, India"
+      },
+      "knowsAbout": [
+        "React.js", "Node.js", "Express.js", "MongoDB", "JavaScript",
+        "Next.js", "Tailwind CSS", "REST APIs", "Full Stack Development",
+        "MERN Stack", "Git", "GitHub", "Python", "MySQL"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Vadodara",
+        "addressRegion": "Gujarat",
+        "addressCountry": "IN"
+      },
       "sameAs": [
         "https://www.linkedin.com/in/mann-patel-ba084625a/",
         "https://github.com/Mann275",
         "http://instagram.com/mann.275"
       ]
     }
-    </script>
+  </script>
+
+  <!-- Structured Data (JSON-LD) - WebSite -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Patel Mann | Portfolio",
+      "url": "https://patelmann.me/",
+      "description": "Portfolio of Patel Mann, a Full Stack MERN Developer from Gujarat, India.",
+      "author": {
+        "@type": "Person",
+        "name": "Patel Mann"
+      }
+    }
+  </script>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -68,6 +100,24 @@
 
 <body class="font-inter">
   <div id="root"></div>
+  <!-- Fallback content for crawlers that don't execute JavaScript -->
+  <noscript>
+    <div style="font-family: sans-serif; padding: 40px; max-width: 800px; margin: 0 auto; color: #111;">
+      <h1>Patel Mann — Full Stack Developer</h1>
+      <p>MERN Stack Developer specializing in React.js, Node.js, Express.js, and MongoDB. Based in Gujarat, India.</p>
+      <h2>Skills</h2>
+      <p>JavaScript, React.js, Next.js, Node.js, Express.js, MongoDB, MySQL, Tailwind CSS, Python, Git, REST APIs</p>
+      <h2>Experience</h2>
+      <p>MERN Stack Developer Intern (Jan 2026 – Present), Vadodara, Gujarat, India.</p>
+      <h2>Education</h2>
+      <p>B.Tech Computer Science and Engineering, Parul University, Gujarat (2026)</p>
+      <h2>Projects</h2>
+      <p>Emergency QR, OverClocked, CrackIt AI — Full Stack MERN projects. View at <a href="https://patelmann.me/projects">patelmann.me/projects</a></p>
+      <h2>Contact</h2>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/mann-patel-ba084625a/">linkedin.com/in/mann-patel-ba084625a</a></p>
+      <p>GitHub: <a href="https://github.com/Mann275">github.com/Mann275</a></p>
+    </div>
+  </noscript>
   <script type="module" src="/src/main.jsx"></script>
 </body>
 

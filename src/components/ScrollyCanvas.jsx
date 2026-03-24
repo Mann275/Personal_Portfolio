@@ -106,6 +106,21 @@ export default function ScrollyCanvas() {
       style={{ position: "relative" }}
     >
       <div className="sticky top-0 h-screen w-full overflow-hidden">
+        {/* Visually hidden H1 for SEO — not visible to users, readable by search crawlers */}
+        <h1
+          style={{
+            position: "absolute",
+            width: "1px",
+            height: "1px",
+            overflow: "hidden",
+            clip: "rect(0 0 0 0)",
+            whiteSpace: "nowrap",
+            border: 0,
+          }}
+        >
+          Patel Mann — Full Stack Developer | MERN Stack | React | Node.js | Portfolio
+        </h1>
+
         {/* Fallback Image */}
         <div
           className="absolute inset-0 bg-cover bg-center z-0"
