@@ -72,12 +72,13 @@ export default function About() {
 
             <p className="text-gray-300 text-lg leading-relaxed mb-8">
               I’m a software engineer who thrives at the intersection of design
-              and logic. I build high-octane, visually immersive web applications
-              that perform flawlessly under the hood. From fluid frontend animations
-              to bulletproof backend architectures utilizing the MERN stack, I don't
-              just write code—I craft digital experiences that leave a lasting
-              impact. I'm actively seeking opportunities to push boundaries and
-              build the next generation of web products.
+              and logic. I build high-octane, visually immersive web
+              applications that perform flawlessly under the hood. From fluid
+              frontend animations to bulletproof backend architectures utilizing
+              the MERN stack, I don't just write code—I craft digital
+              experiences that leave a lasting impact. I'm actively seeking
+              opportunities to push boundaries and build the next generation of
+              web products.
             </p>
             <div className="flex gap-4">
               <a
@@ -87,7 +88,7 @@ export default function About() {
                 Contact Me
               </a>
               <a
-                href="https://drive.google.com/file/d/1YiaXBNYYRHNiVo1EjiCF62LI_nqC1eWQ/view?usp=sharing"
+                href="https://drive.google.com/file/d/1lQrW2b6ekx30i54LPbGWYBFdauXAte5E/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="border border-white text-white px-6 py-3 rounded-full font-semibold hover:bg-white/10 transition-colors"
