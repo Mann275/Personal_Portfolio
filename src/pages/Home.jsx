@@ -13,7 +13,6 @@ const homeSchema = [
     "@context": "https://schema.org",
     "@type": "Person",
     name: "Patel Mann",
-    alternateName: "Mann Patel",
     url: "https://patelmann.me/",
     image: "https://patelmann.me/link.png",
     jobTitle: "Full Stack Developer",
@@ -49,7 +48,7 @@ export default function Home() {
         title="Patel Mann | Full Stack Developer Portfolio"
         description="Patel Mann is a Full Stack Developer from Gujarat, India. Explore MERN stack projects, real-world case studies, and contact details."
         path="/"
-        keywords="Patel Mann, Mann Patel, Patel Mann developer, Full Stack Developer, MERN Developer, React Developer, Portfolio"
+        keywords="Patel Mann, Patel Mann developer, Full Stack Developer, MERN Developer, React Developer, Portfolio"
         jsonLd={homeSchema}
       />
       <ScrollToTop />

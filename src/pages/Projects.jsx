@@ -23,7 +23,7 @@ export default function Projects() {
         title="Projects | Patel Mann"
         description="Browse full-stack, AI, and product projects built by Patel Mann, including demos, source code, and technical details."
         path="/projects"
-        keywords="Patel Mann projects, Mann Patel portfolio projects, React projects, MERN stack projects"
+        keywords="Patel Mann projects, Patel Mann portfolio projects, React projects, MERN stack projects"
         jsonLd={itemListSchema}
       />
 

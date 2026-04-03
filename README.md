@@ -1,4 +1,4 @@
-# Mann Patel | Creative Developer Portfolio | Parallax Website
+# Patel Mann | Creative Developer Portfolio | Parallax Website
 
 ![Portfolio Banner](https://capsule-render.vercel.app/api?type=waving&color=gradient&height=300&section=header&text=Mann%20Patel&fontSize=90&animation=fadeIn&fontAlignY=38&desc=Full%20Stack%20Developer%20%7C%20Creative%20Coder&descAlignY=51&descAlign=62)
 
@@ -10,7 +10,7 @@
 
 ## 📋 About Me
 
-Hi! I'm **Mann Patel**, a passionate Full-Stack Developer and Computer Science student. I love creating modern web applications and solving complex problems through code.
+Hi! I'm **Patel Mann**, a passionate Full-Stack Developer and Computer Science student. I love creating modern web applications and solving complex problems through code.
 
 ### 🎯 What I Do
 
@@ -27,7 +27,6 @@ Hi! I'm **Mann Patel**, a passionate Full-Stack Developer and Computer Science s
 
 ---
 
-
 ## 📬 Connect With Me
 
 <div align="center">
@@ -41,5 +40,5 @@ Hi! I'm **Mann Patel**, a passionate Full-Stack Developer and Computer Science s
 ---
 
 <div align="center">
-    <i>Designed and Developed with ❤️ by Mann Patel.</i>
+    <i>Designed and Developed with ❤️ by Patel Mann.</i>
 </div>
