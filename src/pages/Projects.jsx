@@ -2,10 +2,31 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { projects } from "@/lib/projectData";
 import { FaGithub, FaExternalLinkAlt, FaArrowLeft } from "react-icons/fa";
+import SeoHead from "@/components/SeoHead";
 
 export default function Projects() {
+  const itemListSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "Patel Mann Projects",
+    itemListElement: projects.map((project, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: project.title,
+      url: `https://patelmann.me/projects/${project.slug}`,
+    })),
+  };
+
   return (
     <main className="min-h-screen bg-[#121212] text-white pt-24 pb-12">
+      <SeoHead
+        title="Projects | Patel Mann"
+        description="Browse full-stack, AI, and product projects built by Patel Mann, including demos, source code, and technical details."
+        path="/projects"
+        keywords="Patel Mann projects, Mann Patel portfolio projects, React projects, MERN stack projects"
+        jsonLd={itemListSchema}
+      />
+
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <Link
           to="/"

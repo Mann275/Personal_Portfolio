@@ -3,11 +3,16 @@ import { Link, useParams, Navigate } from "react-router-dom";
 import { projects } from "@/lib/projectData";
 import { FaGithub, FaExternalLinkAlt, FaArrowLeft } from "react-icons/fa";
 import { useEffect, useState } from "react";
+import SeoHead from "@/components/SeoHead";
 
 export default function ProjectDetail() {
   const { slug } = useParams();
   const [project, setProject] = useState(null);
   const [loading, setLoading] = useState(true);
+
+  const fallbackTitle = "Project Details | Patel Mann";
+  const fallbackDescription =
+    "Explore detailed case studies of full-stack projects built by Patel Mann.";
 
   useEffect(() => {
     const foundProject = projects.find((p) => p.slug === slug);
@@ -17,18 +22,66 @@ export default function ProjectDetail() {
 
   if (loading) {
     return (
-      <main className="min-h-screen bg-[#121212] text-white pt-24 pb-12 flex items-center justify-center">
-        <div className="text-xl text-gray-400">Loading...</div>
-      </main>
+      <>
+        <SeoHead
+          title={fallbackTitle}
+          description={fallbackDescription}
+          path={slug ? `/projects/${slug}` : "/projects"}
+        />
+        <main className="min-h-screen bg-[#121212] text-white pt-24 pb-12 flex items-center justify-center">
+          <div className="text-xl text-gray-400">Loading...</div>
+        </main>
+      </>
     );
   }
 
   if (!project) {
-    return <Navigate to="/projects" replace />;
+    return (
+      <>
+        <SeoHead
+          title="Projects | Patel Mann"
+          description="Browse project case studies and full-stack builds by Patel Mann."
+          path="/projects"
+        />
+        <Navigate to="/projects" replace />
+      </>
+    );
   }
+
+  const projectDescription = `${project.shortDescription} Built with ${project.tech.join(
+    ", ",
+  )}.`;
+  const projectSchema = {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    name: project.title,
+    description: project.fullDescription,
+    genre: project.category,
+    author: {
+      "@type": "Person",
+      name: "Patel Mann",
+      url: "https://patelmann.me/",
+    },
+    image: project.image.startsWith("http")
+      ? project.image
+      : `https://patelmann.me${project.image}`,
+    url: `https://patelmann.me/projects/${project.slug}`,
+    sameAs: [project.demoLink, project.repoLink],
+    keywords: project.tech.join(", "),
+  };
 
   return (
     <main className="min-h-screen bg-[#121212] text-white pt-24 pb-12">
+      <SeoHead
+        title={`${project.title} | Patel Mann`}
+        description={projectDescription}
+        path={`/projects/${project.slug}`}
+        image={project.image}
+        type="article"
+        keywords={`Patel Mann ${project.title}, ${project.tech.join(", ")}`}
+        jsonLd={projectSchema}
+      />
+
       <div className="max-w-5xl mx-auto px-6 md:px-12">
         <Link
           to="/projects"

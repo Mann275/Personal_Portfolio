@@ -7,7 +7,7 @@ const experiences = [
     role: "MERN Stack Developer Intern",
     company: "Redspark Technologies",
     location: "Vadodara, Gujarat, India",
-    period: "Jan 2026 – Present",
+    period: "Jan 2026 – Mar 2026",
     description: [
       "Developing full-stack web applications independently under the guidance and regular code reviews of senior developers.",
       "Designing and implementing frontend components using React.js and modern JavaScript (ES6+) with a focus on clean UI and reusability.",

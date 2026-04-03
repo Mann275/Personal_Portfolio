@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
+Host: patelmann.me
 Sitemap: https://patelmann.me/sitemap.xml
