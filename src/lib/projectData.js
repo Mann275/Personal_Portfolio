@@ -22,12 +22,12 @@ export const projects = [
   {
     id: 2,
     slug: "prompt-jump",
-    title: "ChatGPT PromptJump",
+    title: "PromptJump",
     category: "Chrome Extension",
     shortDescription:
       "Instant prompt navigation for long conversations. 100% local execution.",
     fullDescription:
-      "A lightweight Chrome extension that lets users instantly jump to any prompt in long ChatGPT conversations. Designed for speed, simplicity, and complete privacy with 100% local execution. It solves the frustration of scrolling endlessly through long chat histories.",
+      "A lightweight Chrome extension that lets users instantly jump to any prompt in long ChatGPT,Claude conversations. Designed for speed, simplicity, and complete privacy with 100% local execution. It solves the frustration of scrolling endlessly through long chat histories.",
     tech: ["JavaScript", "HTML", "CSS", "Chrome Extension API"],
     features: [
       "Instant jump to any message",
@@ -38,7 +38,7 @@ export const projects = [
     image: "/projects/Promptjump.png",
     demoLink:
       "https://chromewebstore.google.com/detail/chatgpt-promptjump/icbbbaodpbboephpmebcaejcgbcidcph?utm_source=item-share-cb",
-    repoLink: "https://github.com/Mann275/ChatGPT__PromptJump",
+    repoLink: "https://github.com/Mann275/PromptJump",
   },
   {
     id: 3,
